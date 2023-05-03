@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33530.505
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RefrigeracaoLopes_App", "RefrigeracaoLopes_App\RefrigeracaoLopes_App.csproj", "{50F31885-4596-428A-9085-7101D7B25ED4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{50F31885-4596-428A-9085-7101D7B25ED4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50F31885-4596-428A-9085-7101D7B25ED4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50F31885-4596-428A-9085-7101D7B25ED4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50F31885-4596-428A-9085-7101D7B25ED4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D42C04DD-4E3B-4B5A-ACFC-EA0E43AF909F}
+	EndGlobalSection
+EndGlobal

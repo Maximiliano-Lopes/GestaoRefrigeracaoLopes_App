@@ -1,0 +1,11 @@
+C:\Users\maxlo\source\repos\RefrigeracaoLopes_App\RefrigeracaoLopes_App\bin\Debug\RefrigeracaoLopes_App.exe.config
+C:\Users\maxlo\source\repos\RefrigeracaoLopes_App\RefrigeracaoLopes_App\bin\Debug\RefrigeracaoLopes_App.exe
+C:\Users\maxlo\source\repos\RefrigeracaoLopes_App\RefrigeracaoLopes_App\bin\Debug\RefrigeracaoLopes_App.pdb
+C:\Users\maxlo\source\repos\RefrigeracaoLopes_App\RefrigeracaoLopes_App\obj\Debug\RefrigeracaoLopes_App.csproj.AssemblyReference.cache
+C:\Users\maxlo\source\repos\RefrigeracaoLopes_App\RefrigeracaoLopes_App\obj\Debug\RefrigeracaoLopes_App.csproj.SuggestedBindingRedirects.cache
+C:\Users\maxlo\source\repos\RefrigeracaoLopes_App\RefrigeracaoLopes_App\obj\Debug\RefrigeracaoLopes_App.Form1.resources
+C:\Users\maxlo\source\repos\RefrigeracaoLopes_App\RefrigeracaoLopes_App\obj\Debug\RefrigeracaoLopes_App.Properties.Resources.resources
+C:\Users\maxlo\source\repos\RefrigeracaoLopes_App\RefrigeracaoLopes_App\obj\Debug\RefrigeracaoLopes_App.csproj.GenerateResource.cache
+C:\Users\maxlo\source\repos\RefrigeracaoLopes_App\RefrigeracaoLopes_App\obj\Debug\RefrigeracaoLopes_App.csproj.CoreCompileInputs.cache
+C:\Users\maxlo\source\repos\RefrigeracaoLopes_App\RefrigeracaoLopes_App\obj\Debug\RefrigeracaoLopes_App.exe
+C:\Users\maxlo\source\repos\RefrigeracaoLopes_App\RefrigeracaoLopes_App\obj\Debug\RefrigeracaoLopes_App.pdb
