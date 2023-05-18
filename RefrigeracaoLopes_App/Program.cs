@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
+using System.Globalization;
+using System.Threading;
 
 namespace RefrigeracaoLopes_App
 {
@@ -14,9 +17,13 @@ namespace RefrigeracaoLopes_App
         [STAThread]
         static void Main()
         {
+            
+            CultureInfo culture = new CultureInfo("pt-BR");
+      
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Principal());
+            
         }
     }
 }
