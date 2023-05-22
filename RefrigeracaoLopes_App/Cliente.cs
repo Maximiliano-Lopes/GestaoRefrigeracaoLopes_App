@@ -26,14 +26,15 @@ namespace RefrigeracaoLopes_App
         private String telefone;
         private String servico;
         private DateTime dataNasc;
+        private DateTime dataCriacao;
 
-       
+
 
         private String endereco;
         private int id;
 
         
-        public Cliente(String cpf, String nome, String email, String telefone, String endereco, DateTime dataNasc)
+        public Cliente(String cpf, String nome, String email, String telefone, String endereco, DateTime dataNasc, DateTime dataCriacao)
         {
             this.cpf = cpf;
             this.nome = nome;
@@ -41,7 +42,7 @@ namespace RefrigeracaoLopes_App
             this.telefone = telefone;
             this.endereco = endereco;
             this.dataNasc = dataNasc;
-
+            this.dataCriacao = dataCriacao;
         }
         public Cliente() { 
             
@@ -104,6 +105,15 @@ namespace RefrigeracaoLopes_App
         public void setID(int id)
         {
             this.id = id;
+        }
+        public void setDataCriacao(DateTime dataCriacao)
+        {
+            this.dataCriacao = dataCriacao;
+        }
+        public DateTime getDataCriacao()
+        {
+            dataNasc.ToString("d", culture);
+            return dataCriacao;
         }
 
         public override string ToString()

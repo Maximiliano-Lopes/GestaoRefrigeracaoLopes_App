@@ -18,7 +18,7 @@ namespace RefrigeracaoLopes_App
         public static CultureInfo culture = new CultureInfo("pt-BR");
 
         public static int estadoDoServico;
-        public static int estadoDoPagamento = 2; //pendente
+        public static int estadoDoPagamento; //pendente
 
         public static DateTime dateEntrada;
         public static DateTime dateTermino;
@@ -34,8 +34,6 @@ namespace RefrigeracaoLopes_App
         {
             InitializeComponent();
 
-            
-
         }
 
         private void NovoServico_Load(object sender, EventArgs e)
@@ -46,6 +44,9 @@ namespace RefrigeracaoLopes_App
             inputEmail.Text = Principal.email;
             inputTelefone.Text = Principal.telefone;
             inputEnd.Text = Principal.endereco;
+
+            datePickAreaEntrada.Value = DateTime.Now;
+            dateTimePickerTermino.Value = DateTime.Now;
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -65,170 +66,184 @@ namespace RefrigeracaoLopes_App
         private void btn_confirmarAlt_Click(object sender, EventArgs e)
         {
             //verificar as datas:
-            if (dateTimePickerTermino.Enabled) { 
+            if (dateTimePickerTermino.Enabled)
+            {
                 if (DateTime.Compare(DateTime.Parse(dateTimePickerTermino.Text), DateTime.Parse(datePickAreaEntrada.Text)) == -1)
                 {
                     MessageBox.Show("A data de termino não pode ser anterior a data da Entrada!");
-                }else
+                }
+                else
                 {
-                    //Código para dar get em todos os inputs e verificar o restante.
-
-                    if (listEstadoServico.SelectedItem.ToString() == "Concluido")
-                    {
-                        //termino tem que ser real
-                        if (DateTime.Compare(DateTime.Parse(dateTimePickerTermino.Text), DateTime.Parse(datePickAreaEntrada.Text)) == -1 )
-                        {
-                            MessageBox.Show("A data de termino precisa ser preenchida corretamente!");
-
-                        }
-                        else
-                        {
-                            //Atribuições dos valores
-
-                            estadoDoServico = 1; // Concluido
-                            estadoDoPagamento = listEstadoPagamento.SelectedItem.ToString() == "Concluido" ? 1 : 2;
-
-                            dateEntrada = DateTime.Parse(datePickAreaEntrada.Text.ToString());
-                            dateTermino = DateTime.Parse(dateTimePickerTermino.Text.ToString());
-
-                            numeroOrcamento = int.Parse(numericUpDownOrcamento.Text) != 0 ? int.Parse(numericUpDownOrcamento.Value.ToString()) : 1 ;
-                            precoTotal = double.Parse(numericUpDownPreco.Text) != 0 ? double.Parse(numericUpDownPreco.Value.ToString()) : 1;
-
-                            descricaoProduto = textBoxDescricaoProduto.Text.ToString();
-
-                            nomeProduto = textBoxNomeProduto.Text.ToString();
-
-                            int idServico;
-                            int idPagamento;
-
-                            if (estadoDoPagamento == 1)
-                            {
-                                //No final desse código deverá abrir um Form para inserir todas as informações do Pagamento
-                                //POR AQUI SE O ESTADO DO PAGAMENTO FOR CONCLUIDO
-                                //Salvar todas as informações na DB
-
-                                //int idServico = Convert.ToInt32(cmd.ExecuteScalar()) e adicionar o  SELECT SCOPE_IDENTITY(); no final do commandString";
+                    dateTermino = DateTime.Parse(dateTimePickerTermino.Text.ToString());
 
 
-                                String connectionString = ConfigurationManager.ConnectionStrings["RefrigeracaoLopes_App.Properties.Settings.refrigeracaoDB"].ConnectionString;
 
-                                string cmdString = "INSERT INTO [dbo].[Serviços] ([CPF_CNPJ],[DATA_ENTRADA],[PRECO],[PAGAMENTO_ID],[ESTADO],[INFO],[DATA_TERMINO],[NUMERO_ORÇAMENTO]) VALUES (@CPF_CNPJ,@DATA_ENTRADA,@PRECO,@PAGAMENTO_ID,@ESTADO,@INFO,@DATA_TERMINO,@NUMERO_ORÇAMENTO); SELECT SCOPE_IDENTITY();";
-                                try
-                                {
-                                    using (SqlConnection connection = new SqlConnection(connectionString))
-                                    {
-
-                                        using (SqlCommand command = new SqlCommand(cmdString, connection))
-                                        {
-
-                                            
-
-
-                                            command.Parameters.AddWithValue("@CPF_CNPJ", Principal.cpf);
-                                            command.Parameters.AddWithValue("@DATA_ENTRADA", dateEntrada);
-                                            command.Parameters.AddWithValue("@PRECO", precoTotal);
-                                            command.Parameters.AddWithValue("@PAGAMENTO_ID", DBNull.Value);
-                                            command.Parameters.AddWithValue("@ESTADO", estadoDoServico);
-                                            command.Parameters.AddWithValue("@INFO", descricaoProduto);
-                                            command.Parameters.AddWithValue("@DATA_TERMINO", dateTermino);
-                                            command.Parameters.AddWithValue("@NUMERO_ORÇAMENTO", numeroOrcamento);
-
-                                            command.Connection.Open();
-
-                                            idServico = Convert.ToInt32(command.ExecuteScalar());
-
-
-                                            command.Connection.Close();
-                                            
-                                        }
-                                    }
-                                    if (idServico > 0)
-                                    {
-                                        
-                                        
-                                        PagamentoForm pagamentoForm = new PagamentoForm();
-                                        pagamentoForm.ShowDialog();
-
-
-                                        string pagamentoString = "INSERT INTO [dbo].[Pagamento] ([PRODUTO],[PRECO],[MODA_PAGAMENTO],[MEIO_PAGAMENTO],[CPF_CNPJ],[ESTADO],[DATA],[ID_SERVICO], [DESCRICAO]) VALUES ";
-                                        pagamentoString += "(@PRODUTO, @PRECO, @MODA_PAGAMENTO, @MEIO_PAGAMENTO, @CPF_CNPJ, @ESTADO, @DATA, @ID_SERVICO, @DESCRICAO); SELECT SCOPE_IDENTITY();";
-
-
-                                        using (SqlConnection connectionNew = new SqlConnection(connectionString))
-                                        {
-
-                                            using (SqlCommand commandPag = new SqlCommand(pagamentoString, connectionNew))
-                                            {
-                                                
-
-                                                commandPag.Parameters.AddWithValue("@PRODUTO", nomeProduto);
-                                                commandPag.Parameters.AddWithValue("@PRECO", PagamentoForm.precoFinal);
-                                                commandPag.Parameters.AddWithValue("@MODA_PAGAMENTO", 1);
-                                                commandPag.Parameters.AddWithValue("@MEIO_PAGAMENTO", PagamentoForm.meio_pagamento);
-                                                commandPag.Parameters.AddWithValue("@CPF_CNPJ", Principal.cpf);
-                                                commandPag.Parameters.AddWithValue("@ESTADO", PagamentoForm.estado_pagamento);
-                                                commandPag.Parameters.AddWithValue("@DATA", PagamentoForm.dataPagamento);
-                                                commandPag.Parameters.AddWithValue("@ID_SERVICO", idServico);
-                                                commandPag.Parameters.AddWithValue("@DESCRICAO", PagamentoForm.descricaoPagamento);
-
-                                                commandPag.Connection.Open();
-                                                
-                                                idPagamento = Convert.ToInt32(commandPag.ExecuteScalar());
-
-                                                commandPag.Connection.Close();
-                                                MessageBox.Show(idPagamento.ToString());
-                                            }
-                                        }
-                                        if (idPagamento > 0) {
-                                            MessageBox.Show("ID PAGAMENTO: " + idPagamento.ToString() + " - ID SERVIÇO: " + idServico.ToString());
-                                            cmdString = "UPDATE [dbo].[Serviços] SET [PAGAMENTO_ID] = @PAGAMENTO_ID WHERE ID = @ID_SERVICO;";
-                                            
-                                                using (SqlConnection connectionUpdate = new SqlConnection(connectionString))
-                                                {
-
-                                                    using (SqlCommand commandUpdate = new SqlCommand(cmdString, connectionUpdate))
-                                                    {
-                                                        
-                                                    
-                                                        commandUpdate.Parameters.AddWithValue("@PAGAMENTO_ID", idPagamento);
-                                                        commandUpdate.Parameters.AddWithValue("@ID_SERVICO", idServico);
-
-                                                        commandUpdate.Connection.Open();
-
-                                                        int res = commandUpdate.ExecuteNonQuery();
-                                                        commandUpdate.Connection.Close();
-                                                    if (res < 0)
-                                                    {
-                                                        MessageBox.Show("Houve um erro ao Criar o cliente, tente novamente!");
-                                                    }
-                                                    else
-                                                    {
-
-                                                        MessageBox.Show("Serviço e pagamentos foram registrados corretamente!");
-                                                    }
-                                                 }
-                                             }
-
-                                        }
-                                    
-                                    }
-                                }
-                                catch (Exception ex)
-                                {
-                                    Console.WriteLine(ex.StackTrace);
-                                }
-                            }
-                            
-                        }
-                        this.Close();
-                    }
-
+                    CriarServico();
                 }
             }
+            else
+            {
+                //Código para dar get em todos os inputs e verificar o restante.
+
+
+                dateTermino = DateTime.Parse(datePickAreaEntrada.Text);
+
+                CriarServico();
+            }   
+            
             
 
 
 
+        }
+        private void CriarServico()
+        {
+           
+            //Atribuições dos valores
+
+            estadoDoServico = listEstadoServico.SelectedIndex;
+            estadoDoPagamento = listEstadoPagamento.SelectedIndex;
+            
+
+            dateEntrada = DateTime.Parse(datePickAreaEntrada.Text.ToString());
+            
+
+            numeroOrcamento = numericUpDownOrcamento.Text.Length != 0 & int.Parse(numericUpDownOrcamento.Value.ToString()) != 0 ? int.Parse(numericUpDownOrcamento.Value.ToString()) : 1;
+            
+            precoTotal = double.Parse(numericUpDownPreco.Text) != 0 ? double.Parse(numericUpDownPreco.Value.ToString()) : 1;
+
+            descricaoProduto = textBoxDescricaoProduto.Text.ToString() != "" ? textBoxDescricaoProduto.Text.ToString() : "Sem descrição." ;
+
+            nomeProduto = textBoxNomeProduto.Text.ToString();
+
+            int idServico;
+            int idPagamento;
+
+            if (estadoDoPagamento >= 0)
+            {
+                String connectionString = ConfigurationManager.ConnectionStrings["RefrigeracaoLopes_App.Properties.Settings.refrigeracaoDB"].ConnectionString;
+
+                string cmdString = "INSERT INTO [dbo].[Serviços] ([CPF_CNPJ],[DATA_ENTRADA],[PRECO],[PAGAMENTO_ID],[ESTADO],[INFO],[DATA_TERMINO],[NUMERO_ORÇAMENTO]) VALUES (@CPF_CNPJ,@DATA_ENTRADA,@PRECO,@PAGAMENTO_ID,@ESTADO,@INFO,@DATA_TERMINO,@NUMERO_ORÇAMENTO); SELECT SCOPE_IDENTITY();";
+                try
+                {
+                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    {
+
+                        using (SqlCommand command = new SqlCommand(cmdString, connection))
+                        {
+
+                            command.Parameters.AddWithValue("@CPF_CNPJ", Principal.cpf);
+                            command.Parameters.AddWithValue("@DATA_ENTRADA", dateEntrada);
+                            command.Parameters.AddWithValue("@PRECO", precoTotal);
+                            command.Parameters.AddWithValue("@PAGAMENTO_ID", DBNull.Value);
+                            command.Parameters.AddWithValue("@ESTADO", estadoDoServico);
+                            command.Parameters.AddWithValue("@INFO", descricaoProduto);
+                            command.Parameters.AddWithValue("@DATA_TERMINO", dateTermino);
+                            command.Parameters.AddWithValue("@NUMERO_ORÇAMENTO", numeroOrcamento);
+
+                            command.Connection.Open();
+
+                            idServico = Convert.ToInt32(command.ExecuteScalar());
+
+
+                            command.Connection.Close();
+
+                        }
+                    }
+                    if (idServico > 0)
+                    {
+                        try {
+
+                            PagamentoForm pagamentoForm = new PagamentoForm();
+                            pagamentoForm.listEstadoPagamento.SelectedItem = estadoDoPagamento == 1 ? "Concluido" : "Pendente";
+                            pagamentoForm.listEstadoPagamento.Enabled = false;
+                            pagamentoForm.ShowDialog();
+                        
+
+                            string pagamentoString = "INSERT INTO [dbo].[Pagamento] ([PRODUTO],[PRECO],[MODA_PAGAMENTO],[MEIO_PAGAMENTO],[CPF_CNPJ],[ESTADO],[DATA],[ID_SERVICO], [DESCRICAO]) VALUES ";
+                            pagamentoString += "(@PRODUTO, @PRECO, @MODA_PAGAMENTO, @MEIO_PAGAMENTO, @CPF_CNPJ, @ESTADO, @DATA, @ID_SERVICO, @DESCRICAO); SELECT SCOPE_IDENTITY();";
+                            Decimal preco = PagamentoForm.precoFinal > 0 ? PagamentoForm.precoFinal : 1;
+
+
+                            using (SqlConnection connectionNew = new SqlConnection(connectionString))
+                            {
+
+                                using (SqlCommand commandPag = new SqlCommand(pagamentoString, connectionNew))
+                                {
+                                    String descricaoPagamento = PagamentoForm.descricaoPagamento.Length == 0 ?   "Sem descrição." : PagamentoForm.descricaoPagamento;
+
+                                    commandPag.Parameters.AddWithValue("@PRODUTO", nomeProduto);
+                                    commandPag.Parameters.AddWithValue("@PRECO", preco);
+                                    commandPag.Parameters.AddWithValue("@MODA_PAGAMENTO", 1);
+                                    commandPag.Parameters.AddWithValue("@MEIO_PAGAMENTO", PagamentoForm.meio_pagamento);
+                                    commandPag.Parameters.AddWithValue("@CPF_CNPJ", Principal.cpf);
+                                    commandPag.Parameters.AddWithValue("@ESTADO", estadoDoPagamento);
+                                    commandPag.Parameters.AddWithValue("@DATA", PagamentoForm.dataPagamento);
+                                    commandPag.Parameters.AddWithValue("@ID_SERVICO", idServico);
+                                    commandPag.Parameters.AddWithValue("@DESCRICAO", descricaoPagamento);
+
+                                    commandPag.Connection.Open();
+
+                                    string sqlCommandText = commandPag.CommandText;
+                               
+                                    Console.WriteLine(sqlCommandText);
+
+                                    idPagamento = Convert.ToInt32(commandPag.ExecuteScalar());
+
+                                    commandPag.Connection.Close();
+                                
+                                }
+                                if (idPagamento > 0)
+                                {
+
+                                    cmdString = "UPDATE [dbo].[Serviços] SET [PAGAMENTO_ID] = @PAGAMENTO_ID WHERE ID = @ID_SERVICO;";
+
+                                    using (SqlConnection connectionUpdate = new SqlConnection(connectionString))
+                                    {
+
+                                        using (SqlCommand commandUpdate = new SqlCommand(cmdString, connectionUpdate))
+                                        {
+                                            commandUpdate.Parameters.AddWithValue("@PAGAMENTO_ID", idPagamento);
+                                            commandUpdate.Parameters.AddWithValue("@ID_SERVICO", idServico);
+
+                                            commandUpdate.Connection.Open();
+
+                                            int res = commandUpdate.ExecuteNonQuery();
+                                            commandUpdate.Connection.Close();
+                                            if (res < 0)
+                                            {
+                                                MessageBox.Show("Houve um erro ao Criar o cliente, tente novamente!");
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show("Serviço e pagamentos foram registrados corretamente!");
+                                            }
+                                        }
+                                    }
+
+                                }
+
+                            }
+                        }
+                        catch(Exception ex)
+                        {
+                            Console.WriteLine("Ocorreu um erro ao executar o comando SQL:");
+                            Console.WriteLine(ex.ToString());
+                        }
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.StackTrace);
+                }
+            }
+            this.Close();
+        }
+        
+        private void btn_cancelarAlt_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

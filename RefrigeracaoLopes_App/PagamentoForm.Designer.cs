@@ -188,6 +188,7 @@
             this.inputDescricaoProduto.Name = "inputDescricaoProduto";
             this.inputDescricaoProduto.Size = new System.Drawing.Size(382, 257);
             this.inputDescricaoProduto.TabIndex = 67;
+            this.inputDescricaoProduto.Text = "Descrição";
             // 
             // label2
             // 
@@ -343,10 +344,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListBox listMeioPagamento;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ListBox listEstadoPagamento;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DateTimePicker datePickAreaEntrada;
         private System.Windows.Forms.TextBox inputNomeProduto;
         private System.Windows.Forms.Label label6;
+        public System.Windows.Forms.ListBox listEstadoPagamento;
     }
 }

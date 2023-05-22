@@ -1,6 +1,6 @@
 ﻿namespace RefrigeracaoLopes_App
 {
-    partial class ShowInformation
+    partial class SelecInformation
     {
         /// <summary>
         /// Required designer variable.
@@ -28,91 +28,149 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.dataGridViewPesq = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textPesq = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPesq)).BeginInit();
+            this.btn_cancelarAlt = new System.Windows.Forms.Button();
+            this.btn_confirmarAlt = new System.Windows.Forms.Button();
+            this.dateTimeInicio = new System.Windows.Forms.DateTimePicker();
+            this.label8 = new System.Windows.Forms.Label();
+            this.dateTimeFinal = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.SuspendLayout();
             // 
-            // dataGridViewPesq
+            // btn_cancelarAlt
             // 
-            this.dataGridViewPesq.AllowUserToAddRows = false;
-            this.dataGridViewPesq.AllowUserToDeleteRows = false;
-            this.dataGridViewPesq.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewPesq.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewPesq.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridViewPesq.BackgroundColor = System.Drawing.Color.LightYellow;
-            this.dataGridViewPesq.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridViewPesq.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Roboto", 13F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewPesq.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewPesq.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewPesq.GridColor = System.Drawing.Color.Brown;
-            this.dataGridViewPesq.Location = new System.Drawing.Point(-1, 137);
-            this.dataGridViewPesq.Margin = new System.Windows.Forms.Padding(8, 2, 2, 2);
-            this.dataGridViewPesq.Name = "dataGridViewPesq";
-            this.dataGridViewPesq.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewPesq.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewPesq.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Gainsboro;
-            this.dataGridViewPesq.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridViewPesq.RowTemplate.Height = 24;
-            this.dataGridViewPesq.Size = new System.Drawing.Size(1167, 666);
-            this.dataGridViewPesq.TabIndex = 5;
-            this.dataGridViewPesq.Visible = false;
+            this.btn_cancelarAlt.BackColor = System.Drawing.Color.Maroon;
+            this.btn_cancelarAlt.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.btn_cancelarAlt.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_cancelarAlt.Location = new System.Drawing.Point(143, 370);
+            this.btn_cancelarAlt.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_cancelarAlt.Name = "btn_cancelarAlt";
+            this.btn_cancelarAlt.Size = new System.Drawing.Size(134, 44);
+            this.btn_cancelarAlt.TabIndex = 17;
+            this.btn_cancelarAlt.Text = "Cancelar";
+            this.btn_cancelarAlt.UseVisualStyleBackColor = false;
+            this.btn_cancelarAlt.Visible = false;
             // 
-            // button1
+            // btn_confirmarAlt
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.Chartreuse;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.button1.Location = new System.Drawing.Point(1005, 98);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(155, 32);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Pesquisar";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btn_confirmarAlt.BackColor = System.Drawing.Color.LawnGreen;
+            this.btn_confirmarAlt.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.btn_confirmarAlt.Location = new System.Drawing.Point(469, 370);
+            this.btn_confirmarAlt.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_confirmarAlt.Name = "btn_confirmarAlt";
+            this.btn_confirmarAlt.Size = new System.Drawing.Size(133, 44);
+            this.btn_confirmarAlt.TabIndex = 16;
+            this.btn_confirmarAlt.Text = "Confirmar";
+            this.btn_confirmarAlt.UseVisualStyleBackColor = false;
+            this.btn_confirmarAlt.Visible = false;
+            this.btn_confirmarAlt.Click += new System.EventHandler(this.btn_confirmarAlt_Click);
             // 
-            // textPesq
+            // dateTimeInicio
             // 
-            this.textPesq.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textPesq.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.textPesq.Location = new System.Drawing.Point(607, 98);
-            this.textPesq.Margin = new System.Windows.Forms.Padding(2);
-            this.textPesq.Name = "textPesq";
-            this.textPesq.Size = new System.Drawing.Size(383, 35);
-            this.textPesq.TabIndex = 3;
+            this.dateTimeInicio.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.dateTimeInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimeInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimeInicio.Location = new System.Drawing.Point(148, 55);
+            this.dateTimeInicio.Margin = new System.Windows.Forms.Padding(2);
+            this.dateTimeInicio.Name = "dateTimeInicio";
+            this.dateTimeInicio.Size = new System.Drawing.Size(155, 35);
+            this.dateTimeInicio.TabIndex = 42;
+            this.dateTimeInicio.Value = new System.DateTime(2023, 5, 10, 0, 0, 0, 0);
             // 
-            // ShowInformation
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.label8.Location = new System.Drawing.Point(58, 57);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(86, 31);
+            this.label8.TabIndex = 41;
+            this.label8.Text = "Inicio:";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // dateTimeFinal
+            // 
+            this.dateTimeFinal.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.dateTimeFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimeFinal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimeFinal.Location = new System.Drawing.Point(408, 55);
+            this.dateTimeFinal.Margin = new System.Windows.Forms.Padding(2);
+            this.dateTimeFinal.Name = "dateTimeFinal";
+            this.dateTimeFinal.Size = new System.Drawing.Size(155, 35);
+            this.dateTimeFinal.TabIndex = 44;
+            this.dateTimeFinal.Value = new System.DateTime(2023, 5, 10, 0, 0, 0, 0);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.label1.Location = new System.Drawing.Point(337, 57);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 31);
+            this.label1.TabIndex = 43;
+            this.label1.Text = "Fim:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.label2.Location = new System.Drawing.Point(13, 9);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(115, 31);
+            this.label2.TabIndex = 45;
+            this.label2.Text = "Período:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.label3.Location = new System.Drawing.Point(13, 114);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(243, 31);
+            this.label3.TabIndex = 46;
+            this.label3.Text = "Dados no relatório:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.label3.Visible = false;
+            // 
+            // checkedListBox1
+            // 
+            this.checkedListBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.Items.AddRange(new object[] {
+            "Novos Clientes",
+            "Novos Serviços e seus estados",
+            "Pagamentos e seus estados"});
+            this.checkedListBox1.Location = new System.Drawing.Point(64, 159);
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.Size = new System.Drawing.Size(264, 67);
+            this.checkedListBox1.TabIndex = 48;
+            this.checkedListBox1.Visible = false;
+            // 
+            // SelecInformation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1167, 690);
-            this.Controls.Add(this.dataGridViewPesq);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textPesq);
-            this.Name = "ShowInformation";
-            this.Text = "ShowInformation";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPesq)).EndInit();
+            this.ClientSize = new System.Drawing.Size(748, 444);
+            this.Controls.Add(this.checkedListBox1);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.dateTimeFinal);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.dateTimeInicio);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.btn_cancelarAlt);
+            this.Controls.Add(this.btn_confirmarAlt);
+            this.Name = "SelecInformation";
+            this.Text = "SelecInformation";
+            this.Load += new System.EventHandler(this.ShowInformation_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -120,8 +178,14 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridViewPesq;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textPesq;
+        private System.Windows.Forms.Button btn_cancelarAlt;
+        private System.Windows.Forms.Button btn_confirmarAlt;
+        private System.Windows.Forms.DateTimePicker dateTimeInicio;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DateTimePicker dateTimeFinal;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckedListBox checkedListBox1;
     }
 }

@@ -13,19 +13,21 @@ using System.Windows.Forms;
 
 namespace RefrigeracaoLopes_App
 {
-    public partial class mecanismoDeBusca : Form
+    public partial class MecanismoDeBusca : Form
     {
-        public mecanismoDeBusca()
+        public MecanismoDeBusca()
         {
             InitializeComponent();
         }
 
         private void mecanismoDeBusca_Load(object sender, EventArgs e)
         {
-            
+            // TODO: esta linha de código carrega dados na tabela 'refrigeracaoDBDataSet4.Clientes'. Você pode movê-la ou removê-la conforme necessário.
+            this.clientesTableAdapter1.Fill(this.refrigeracaoDBDataSet4.Clientes);
+
 
         }
-
+        
         private void button1_Click(object sender, EventArgs e)
         {
             String connectionString = ConfigurationManager.ConnectionStrings["RefrigeracaoLopes_App.Properties.Settings.refrigeracaoDB"].ConnectionString;
@@ -40,7 +42,7 @@ namespace RefrigeracaoLopes_App
                         SqlDataAdapter adapter = new SqlDataAdapter(command);
                         DataTable table = new DataTable();
                         adapter.Fill(table);
-                        dataGridViewPesq.DataSource = table;
+                        dataGridViewMecBusc.DataSource = table;
                     }
                 }
             }
@@ -57,12 +59,43 @@ namespace RefrigeracaoLopes_App
 
         private void relatórioDaSemanaToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            SelecInformation definicaoDeParametros = new SelecInformation();
+            SelecInformation.variavelSelect = "RequisicaoRelatorios";
+            definicaoDeParametros.ShowDialog();
 
         }
 
         private void textPesq_TextChanged(object sender, EventArgs e)
         {
             button1.PerformClick();
+        }
+
+        private void emAbertoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SelecInformation definicaoDeParametros = new SelecInformation();
+            SelecInformation.variavelSelect = "PagamentoVerPendentes";
+            definicaoDeParametros.ReqPagamentosPendentes();
+        }
+
+        private void verPagosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SelecInformation definicaoDeParametros = new SelecInformation();
+            
+            definicaoDeParametros.ReqPagamentosPagos();
+        }
+
+        private void verPendentesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SelecInformation definicaoDeParametros = new SelecInformation();
+
+            definicaoDeParametros.ReqServicosPendentes();
+        }
+
+        private void verConcluídosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SelecInformation definicaoDeParametros = new SelecInformation();
+
+            definicaoDeParametros.ReqServicosConcluidos();
         }
     }
 }

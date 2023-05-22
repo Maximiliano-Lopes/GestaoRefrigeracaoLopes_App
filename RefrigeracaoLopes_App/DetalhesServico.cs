@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Google.Protobuf.WellKnownTypes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -55,7 +56,7 @@ namespace RefrigeracaoLopes_App
 
                                     //0                1              2            3                4                5                        6
                                     //Cliente.ID, Cliente.NOME, Cliente.EMAIL, Cliente.ENDEREÇO, Cliente.TELEFONE, Servicos.DATA_ENTRADA, Servicos.DATA_TERMINO,
-                                    //        7                     8                   9              10               11           12
+                                    //        7                     8                   9              10               11              12
                                     //Servicos.ESTADO, Servicos.NUMERO_ORÇAMENTO, Servicos.INFO, Servicos.PRECO, Pagamento.ESTADO, Pagamento.PRODUTO
 
                                     
@@ -66,19 +67,19 @@ namespace RefrigeracaoLopes_App
                                     inputEnd.Text = reader.GetString(3);
                                     inputTelefone.Text = reader.GetString(4);
                                     datePickAreaEntrada.Value = reader.GetDateTime(5);
-                                    dateTimePickerTermino.Value = reader.GetDateTime(6);
-                                    listEstadoServico.SelectedIndex = reader.GetInt32(7);
-                                    numericUpDownOrcamento.Value = reader.GetInt32(8);
+                                    dateTimePickerTermino.Value = reader.GetDateTime(6) == null ? DateTime.Now : reader.GetDateTime(6);//******
+                                    listEstadoServico.SelectedItem = reader.GetInt32(7) == 1 ? "Concluido" : "Pendente";
+                                    numericUpDownOrcamento.Value = reader.GetInt32(8) == 0 ? 1 : reader.GetInt32(8);//******
                                     textBoxDescricaoProduto.Text = reader.GetString(9);
                                     numericUpDownPreco.Value = reader.GetDecimal(10);
-                                    listEstadoPagamento.SelectedIndex = reader.GetInt32(11);
+                                    listEstadoPagamento.SelectedItem = reader.GetInt32(11) == 1 ? "Concluido" : "Pendente";
                                     textBoxNomeProduto.Text = reader.GetString(12);
 
                                 }
                                 catch (Exception ex)
                                 {
                                     connection.Close();
-                                    Console.WriteLine(ex.StackTrace);
+                                    Console.WriteLine(ex.ToString());
                                 }
                             }
                             

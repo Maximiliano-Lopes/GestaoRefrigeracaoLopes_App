@@ -45,13 +45,13 @@ namespace RefrigeracaoLopes_App
             dataNascAntiga = Principal.dataNasc;
             datePickAreaNasc.Value = Principal.dataNasc;
             datePickAreaNasc.Enabled = false;
-
+            dateTimeClienteDesde.Value = Principal.dataCriacao;
 
             String connectionString = ConfigurationManager.ConnectionStrings["RefrigeracaoLopes_App.Properties.Settings.refrigeracaoDB"].ConnectionString;
             try
             {
-                string queryString = "SELECT * FROM Serviços WHERE CPF_CNPJ = '" + Principal.cpf + "';";
-                using (SqlConnection connection = new SqlConnection(
+                string queryString = "SELECT * FROM Serviços WHERE CPF_CNPJ = '" + Principal.cpf + "' ORDER BY ESTADO;";
+                using (SqlConnection connection = new SqlConnection( 
                            connectionString))
                 {
                     SqlCommand command = new SqlCommand(
@@ -67,11 +67,11 @@ namespace RefrigeracaoLopes_App
                                 {
 
                                     //Pegar a informação do serviço! Verificar isso 
-                                    //0       1          2           3          4          5     6          7             8
+                                    //0       1          2           3          4         5     6        **7           **8
                                     //id , CPF_CNPJ, DATA_ENTRADA, PRECO, PAGAMENTO_ID, ESTADO, INFO, DATA_TERMINO, NUEMERO_ORÇAMENTO
 
 
-                                    String row = reader.GetInt32(0) + " - " + reader.GetString(1) + " - " + reader.GetDateTime(2) + " - " + reader.GetDecimal(3) + " - " + reader.GetInt32(4) + " - " + reader.GetInt32(5) + " - " + reader.GetString(6) + " - " + reader.GetDateTime(7);
+                                    String row = reader.GetInt32(0) + " - " + reader.GetString(1) + " - " + reader.GetDateTime(2) + " - " + reader.GetDecimal(3) + " - " + reader.GetInt32(4) + " - " + reader.GetInt32(5) + " - " + reader.GetString(6);
 
                                     listServicos.Items.Add(row);
 
@@ -93,7 +93,7 @@ namespace RefrigeracaoLopes_App
             catch (SqlException ex){
                 Console.WriteLine(ex.StackTrace);
             }
-            }
+        }
             
         private void button1_Click(object sender, EventArgs e)
         {
@@ -138,7 +138,7 @@ namespace RefrigeracaoLopes_App
 
         private void btn_confirmarAlt_Click(object sender, EventArgs e)
         {
-            Cliente cliente = new Cliente(inputCPF.Text.ToString(), inputNome.Text.ToString(), inputEmail.Text.ToString(), inputTelefone.Text.ToString(), inputEnd.Text.ToString(), DateTime.Parse(datePickAreaNasc.Text));
+            Cliente cliente = new Cliente(inputCPF.Text.ToString(), inputNome.Text.ToString(), inputEmail.Text.ToString(), inputTelefone.Text.ToString(), inputEnd.Text.ToString(), DateTime.Parse(datePickAreaNasc.Text), Principal.dataCriacao);
 
 
 

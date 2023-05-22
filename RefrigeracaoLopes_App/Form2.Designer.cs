@@ -52,6 +52,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.datePickAreaNasc = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
+            this.dateTimeClienteDesde = new System.Windows.Forms.DateTimePicker();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.refrigeracaoDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.serviçosBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -60,7 +62,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.label4.Location = new System.Drawing.Point(70, 18);
+            this.label4.Location = new System.Drawing.Point(22, 9);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(50, 31);
@@ -71,7 +73,7 @@
             // 
             this.id_Place.AutoSize = true;
             this.id_Place.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.id_Place.Location = new System.Drawing.Point(124, 18);
+            this.id_Place.Location = new System.Drawing.Point(76, 9);
             this.id_Place.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.id_Place.Name = "id_Place";
             this.id_Place.Size = new System.Drawing.Size(115, 31);
@@ -229,7 +231,7 @@
             this.listServicos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.listServicos.FormattingEnabled = true;
             this.listServicos.ItemHeight = 16;
-            this.listServicos.Location = new System.Drawing.Point(538, 48);
+            this.listServicos.Location = new System.Drawing.Point(536, 50);
             this.listServicos.Margin = new System.Windows.Forms.Padding(2, 41, 2, 2);
             this.listServicos.MaximumSize = new System.Drawing.Size(1126, 488);
             this.listServicos.Name = "listServicos";
@@ -242,7 +244,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Roboto", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label5.Location = new System.Drawing.Point(808, 7);
+            this.label5.Location = new System.Drawing.Point(767, 13);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(113, 29);
@@ -311,12 +313,39 @@
             this.label8.Text = "Data de Nascimento:";
             this.label8.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
+            // dateTimeClienteDesde
+            // 
+            this.dateTimeClienteDesde.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.dateTimeClienteDesde.Enabled = false;
+            this.dateTimeClienteDesde.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimeClienteDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimeClienteDesde.Location = new System.Drawing.Point(431, 7);
+            this.dateTimeClienteDesde.Margin = new System.Windows.Forms.Padding(2);
+            this.dateTimeClienteDesde.Name = "dateTimeClienteDesde";
+            this.dateTimeClienteDesde.Size = new System.Drawing.Size(155, 35);
+            this.dateTimeClienteDesde.TabIndex = 42;
+            this.dateTimeClienteDesde.Value = new System.DateTime(2023, 5, 10, 0, 0, 0, 0);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.label9.Location = new System.Drawing.Point(239, 9);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(188, 31);
+            this.label9.TabIndex = 41;
+            this.label9.Text = "Cliente desde:";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(1113, 426);
+            this.Controls.Add(this.dateTimeClienteDesde);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.datePickAreaNasc);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.inputCPF);
@@ -375,5 +404,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DateTimePicker datePickAreaNasc;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DateTimePicker dateTimeClienteDesde;
+        private System.Windows.Forms.Label label9;
     }
 }

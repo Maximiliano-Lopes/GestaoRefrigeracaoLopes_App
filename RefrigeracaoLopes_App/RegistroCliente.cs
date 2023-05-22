@@ -38,7 +38,7 @@ namespace RefrigeracaoLopes_App
 
                 DateTime dataNscNew = DateTime.Parse(datePickArea.Text.ToString());
 
-                Cliente cliente = new Cliente( inputNCPF.Text.ToString(),  inputNNome.Text.ToString(), inputNEmail.Text.ToString(), inputNTelefone.Text.ToString(), inputNEnd.Text.ToString(), dataNscNew);
+                Cliente cliente = new Cliente( inputNCPF.Text.ToString(),  inputNNome.Text.ToString(), inputNEmail.Text.ToString(), inputNTelefone.Text.ToString(), inputNEnd.Text.ToString(), dataNscNew, DateTime.Now);
 
                 Console.WriteLine(cliente.ToString());
                 
@@ -46,8 +46,8 @@ namespace RefrigeracaoLopes_App
                 {
                     String connectionString = ConfigurationManager.ConnectionStrings["RefrigeracaoLopes_App.Properties.Settings.refrigeracaoDB"].ConnectionString;
 
-                    string cmdString = "INSERT INTO Clientes ([CPF_CNPJ], [EMAIL], [NOME], [TELEFONE], [ENDEREÇO], [DATA_NSC]) ";
-                           cmdString += "VALUES (@CPF_CNPJ, @EMAIL, @NOME, @TELEFONE, @ENDERECO, @DATA_NSC)";
+                    string cmdString = "INSERT INTO Clientes ([CPF_CNPJ], [EMAIL], [NOME], [TELEFONE], [ENDEREÇO], [DATA_NSC], [DATA_CRIACAO]) ";
+                           cmdString += "VALUES (@CPF_CNPJ, @EMAIL, @NOME, @TELEFONE, @ENDERECO, @DATA_NSC, @DATA_CRIACAO)";
 
                     using (SqlConnection connection = new SqlConnection(connectionString))
                     {
@@ -63,7 +63,7 @@ namespace RefrigeracaoLopes_App
                             command.Parameters.AddWithValue("@TELEFONE", cliente.getTelefone());
                             command.Parameters.AddWithValue("@ENDERECO", cliente.getEndereco());
                             command.Parameters.AddWithValue("@DATA_NSC", cliente.getDataNsc());
-
+                            command.Parameters.AddWithValue("@DATA_CRIACAO", DateTime.Now);
                             
                             int result = command.ExecuteNonQuery();
                             
@@ -96,6 +96,11 @@ namespace RefrigeracaoLopes_App
         private void datePickArea_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void RegistroCliente_Load(object sender, EventArgs e)
+        {
+            datePickArea.Value = DateTime.Now;
         }
     }
 }

@@ -49,11 +49,11 @@ namespace RefrigeracaoLopes_App
         private void btn_confirmarInfo_Click(object sender, EventArgs e)
         {
 
-            estado_pagamento = int.Parse(listEstadoPagamento.SelectedIndex.ToString())+2;
+            descricaoPagamento = inputDescricaoProduto.Text.ToString();
             meio_pagamento = int.Parse(listMeioPagamento.SelectedIndex.ToString())+2;
             dataPagamento = DateTime.Parse(datePickAreaEntrada.Text);
             precoFinal = numericUpDownPreco.Value;
-            descricaoPagamento = inputDescricaoProduto.Text.ToString();
+            
 
             this.Close();
 

@@ -27,7 +27,9 @@ namespace RefrigeracaoLopes_App
         public static String servico = "";
         public static String endereco = "";
         public static DateTime dataNasc;
-       
+        public static DateTime dataCriacao;
+
+
         public static int id;
 
         public Principal()
@@ -37,6 +39,8 @@ namespace RefrigeracaoLopes_App
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: esta linha de código carrega dados na tabela 'refrigeracaoDBDataSet4.Clientes'. Você pode movê-la ou removê-la conforme necessário.
+            this.clientesTableAdapter3.Fill(this.refrigeracaoDBDataSet4.Clientes);
             // TODO: esta linha de código carrega dados na tabela 'refrigeracaoDBDataSet2.Clientes'. Você pode movê-la ou removê-la conforme necessário.
             this.clientesTableAdapter2.Fill(this.refrigeracaoDBDataSet2.Clientes);
 
@@ -62,8 +66,8 @@ namespace RefrigeracaoLopes_App
             cliente.setTelefone(dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString());
             cliente.setEndereco(dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString());
             cliente.setDataNsc(DateTime.Parse(dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString()));
+            cliente.setDataCriacao(DateTime.Parse(dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString()));
 
-            
             cpf = cliente.getCpf();
             nome = cliente.getNome();
             email = cliente.getEmail();
@@ -71,6 +75,7 @@ namespace RefrigeracaoLopes_App
             endereco = cliente.getEndereco();
             id = cliente.getId();
             dataNasc = cliente.getDataNsc();
+            dataCriacao = cliente.getDataCriacao();
 
             Form2 formDetalhes = new Form2();
             //passar informações pros detalhes
@@ -98,7 +103,7 @@ namespace RefrigeracaoLopes_App
         {
             //button pesquisar
             
-            mecanismoDeBusca mecanismoDeBusca = new mecanismoDeBusca();
+            MecanismoDeBusca mecanismoDeBusca = new MecanismoDeBusca();
             mecanismoDeBusca.Show();
 
         }
@@ -118,7 +123,7 @@ namespace RefrigeracaoLopes_App
         {
             try
             {
-                this.clientesTableAdapter2.Fill(this.refrigeracaoDBDataSet2.Clientes);
+                this.clientesTableAdapter3.Fill(this.refrigeracaoDBDataSet4.Clientes);
             }
             catch (System.Exception ex)
             {

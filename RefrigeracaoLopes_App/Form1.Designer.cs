@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.paginacao = new System.Windows.Forms.TabControl();
             this.clienteArea = new System.Windows.Forms.TabPage();
             this.fillByToolStrip = new System.Windows.Forms.ToolStrip();
@@ -50,15 +50,28 @@
             this.tELEFONEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.eNDEREÇODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dATANSCDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clientesBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
-            this.refrigeracaoDBDataSet2 = new RefrigeracaoLopes_App.refrigeracaoDBDataSet2();
+            this.dATACRIACAODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clientesBindingSource7 = new System.Windows.Forms.BindingSource(this.components);
+            this.refrigeracaoDBDataSet4 = new RefrigeracaoLopes_App.refrigeracaoDBDataSet4();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dataGridViewPesqToService = new System.Windows.Forms.DataGridView();
+            this.iDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cPFCNPJDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eMAILDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nOMEDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tELEFONEDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eNDEREÇODataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dATANSCDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dATACRIACAODataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clientesBindingSource8 = new System.Windows.Forms.BindingSource(this.components);
+            this.refrigeracaoDBDataSet4BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.textPesq = new System.Windows.Forms.TextBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.clientesBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
+            this.refrigeracaoDBDataSet2 = new RefrigeracaoLopes_App.refrigeracaoDBDataSet2();
             this.clientesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.refrigeracaoDBDataSet1 = new RefrigeracaoLopes_App.refrigeracaoDBDataSet1();
             this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -72,15 +85,22 @@
             this.refrigeracaoDBDataSet1BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.clientesBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.clientesTableAdapter2 = new RefrigeracaoLopes_App.refrigeracaoDBDataSet2TableAdapters.ClientesTableAdapter();
+            this.clientesBindingSource5 = new System.Windows.Forms.BindingSource(this.components);
+            this.clientesTableAdapter3 = new RefrigeracaoLopes_App.refrigeracaoDBDataSet4TableAdapters.ClientesTableAdapter();
+            this.clientesBindingSource6 = new System.Windows.Forms.BindingSource(this.components);
             this.fKServiçosClientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.paginacao.SuspendLayout();
             this.clienteArea.SuspendLayout();
             this.fillByToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.refrigeracaoDBDataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.refrigeracaoDBDataSet4)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPesqToService)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.refrigeracaoDBDataSet4BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.refrigeracaoDBDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.refrigeracaoDBDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).BeginInit();
@@ -90,6 +110,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.refrigeracaoDBDataSet1BindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKServiçosClientesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -129,7 +151,7 @@
             this.fillByToolStrip.Dock = System.Windows.Forms.DockStyle.None;
             this.fillByToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fillByToolStripButton});
-            this.fillByToolStrip.Location = new System.Drawing.Point(871, 13);
+            this.fillByToolStrip.Location = new System.Drawing.Point(871, 10);
             this.fillByToolStrip.Name = "fillByToolStrip";
             this.fillByToolStrip.Size = new System.Drawing.Size(35, 25);
             this.fillByToolStrip.TabIndex = 2;
@@ -151,7 +173,7 @@
             this.btnPesq.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPesq.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btnPesq.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnPesq.Location = new System.Drawing.Point(1037, 9);
+            this.btnPesq.Location = new System.Drawing.Point(1037, 6);
             this.btnPesq.Name = "btnPesq";
             this.btnPesq.Size = new System.Drawing.Size(123, 32);
             this.btnPesq.TabIndex = 2;
@@ -166,7 +188,7 @@
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.button1.ForeColor = System.Drawing.Color.DarkGreen;
-            this.button1.Location = new System.Drawing.Point(910, 9);
+            this.button1.Location = new System.Drawing.Point(910, 6);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(120, 32);
             this.button1.TabIndex = 1;
@@ -186,14 +208,14 @@
             this.dataGridView1.BackgroundColor = System.Drawing.Color.LightYellow;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Roboto", 13F);
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Roboto", 13F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.iDDataGridViewTextBoxColumn,
@@ -202,26 +224,27 @@
             this.nOMEDataGridViewTextBoxColumn,
             this.tELEFONEDataGridViewTextBoxColumn,
             this.eNDEREÇODataGridViewTextBoxColumn,
-            this.dATANSCDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.clientesBindingSource4;
+            this.dATANSCDataGridViewTextBoxColumn,
+            this.dATACRIACAODataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.clientesBindingSource7;
             this.dataGridView1.GridColor = System.Drawing.Color.Brown;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 47);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 38);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.Gainsboro;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Gainsboro;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1185, 611);
+            this.dataGridView1.Size = new System.Drawing.Size(1181, 620);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
@@ -275,15 +298,22 @@
             this.dATANSCDataGridViewTextBoxColumn.Name = "dATANSCDataGridViewTextBoxColumn";
             this.dATANSCDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // clientesBindingSource4
+            // dATACRIACAODataGridViewTextBoxColumn
             // 
-            this.clientesBindingSource4.DataMember = "Clientes";
-            this.clientesBindingSource4.DataSource = this.refrigeracaoDBDataSet2;
+            this.dATACRIACAODataGridViewTextBoxColumn.DataPropertyName = "DATA_CRIACAO";
+            this.dATACRIACAODataGridViewTextBoxColumn.HeaderText = "DATA_CRIACAO";
+            this.dATACRIACAODataGridViewTextBoxColumn.Name = "dATACRIACAODataGridViewTextBoxColumn";
+            this.dATACRIACAODataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // refrigeracaoDBDataSet2
+            // clientesBindingSource7
             // 
-            this.refrigeracaoDBDataSet2.DataSetName = "refrigeracaoDBDataSet2";
-            this.refrigeracaoDBDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.clientesBindingSource7.DataMember = "Clientes";
+            this.clientesBindingSource7.DataSource = this.refrigeracaoDBDataSet4;
+            // 
+            // refrigeracaoDBDataSet4
+            // 
+            this.refrigeracaoDBDataSet4.DataSetName = "refrigeracaoDBDataSet4";
+            this.refrigeracaoDBDataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tabPage2
             // 
@@ -306,50 +336,127 @@
             this.dataGridViewPesqToService.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewPesqToService.AutoGenerateColumns = false;
             this.dataGridViewPesqToService.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewPesqToService.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridViewPesqToService.BackgroundColor = System.Drawing.Color.LightYellow;
             this.dataGridViewPesqToService.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridViewPesqToService.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Roboto", 13F);
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewPesqToService.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Roboto", 13F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewPesqToService.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewPesqToService.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewPesqToService.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.iDDataGridViewTextBoxColumn1,
+            this.cPFCNPJDataGridViewTextBoxColumn1,
+            this.eMAILDataGridViewTextBoxColumn1,
+            this.nOMEDataGridViewTextBoxColumn1,
+            this.tELEFONEDataGridViewTextBoxColumn1,
+            this.eNDEREÇODataGridViewTextBoxColumn1,
+            this.dATANSCDataGridViewTextBoxColumn1,
+            this.dATACRIACAODataGridViewTextBoxColumn1});
+            this.dataGridViewPesqToService.DataSource = this.clientesBindingSource8;
             this.dataGridViewPesqToService.GridColor = System.Drawing.Color.Brown;
-            this.dataGridViewPesqToService.Location = new System.Drawing.Point(-33, 79);
+            this.dataGridViewPesqToService.Location = new System.Drawing.Point(0, 68);
             this.dataGridViewPesqToService.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
             this.dataGridViewPesqToService.Name = "dataGridViewPesqToService";
             this.dataGridViewPesqToService.ReadOnly = true;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewPesqToService.RowHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewPesqToService.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewPesqToService.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.Gainsboro;
-            this.dataGridViewPesqToService.RowsDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Gainsboro;
+            this.dataGridViewPesqToService.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewPesqToService.RowTemplate.Height = 24;
-            this.dataGridViewPesqToService.Size = new System.Drawing.Size(1397, 647);
+            this.dataGridViewPesqToService.Size = new System.Drawing.Size(1185, 647);
             this.dataGridViewPesqToService.TabIndex = 5;
             this.dataGridViewPesqToService.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPesqToService_CellContentClick);
+            // 
+            // iDDataGridViewTextBoxColumn1
+            // 
+            this.iDDataGridViewTextBoxColumn1.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn1.Name = "iDDataGridViewTextBoxColumn1";
+            this.iDDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // cPFCNPJDataGridViewTextBoxColumn1
+            // 
+            this.cPFCNPJDataGridViewTextBoxColumn1.DataPropertyName = "CPF_CNPJ";
+            this.cPFCNPJDataGridViewTextBoxColumn1.HeaderText = "CPF_CNPJ";
+            this.cPFCNPJDataGridViewTextBoxColumn1.Name = "cPFCNPJDataGridViewTextBoxColumn1";
+            this.cPFCNPJDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // eMAILDataGridViewTextBoxColumn1
+            // 
+            this.eMAILDataGridViewTextBoxColumn1.DataPropertyName = "EMAIL";
+            this.eMAILDataGridViewTextBoxColumn1.HeaderText = "EMAIL";
+            this.eMAILDataGridViewTextBoxColumn1.Name = "eMAILDataGridViewTextBoxColumn1";
+            this.eMAILDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // nOMEDataGridViewTextBoxColumn1
+            // 
+            this.nOMEDataGridViewTextBoxColumn1.DataPropertyName = "NOME";
+            this.nOMEDataGridViewTextBoxColumn1.HeaderText = "NOME";
+            this.nOMEDataGridViewTextBoxColumn1.Name = "nOMEDataGridViewTextBoxColumn1";
+            this.nOMEDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // tELEFONEDataGridViewTextBoxColumn1
+            // 
+            this.tELEFONEDataGridViewTextBoxColumn1.DataPropertyName = "TELEFONE";
+            this.tELEFONEDataGridViewTextBoxColumn1.HeaderText = "TELEFONE";
+            this.tELEFONEDataGridViewTextBoxColumn1.Name = "tELEFONEDataGridViewTextBoxColumn1";
+            this.tELEFONEDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // eNDEREÇODataGridViewTextBoxColumn1
+            // 
+            this.eNDEREÇODataGridViewTextBoxColumn1.DataPropertyName = "ENDEREÇO";
+            this.eNDEREÇODataGridViewTextBoxColumn1.HeaderText = "ENDEREÇO";
+            this.eNDEREÇODataGridViewTextBoxColumn1.Name = "eNDEREÇODataGridViewTextBoxColumn1";
+            this.eNDEREÇODataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dATANSCDataGridViewTextBoxColumn1
+            // 
+            this.dATANSCDataGridViewTextBoxColumn1.DataPropertyName = "DATA_NSC";
+            this.dATANSCDataGridViewTextBoxColumn1.HeaderText = "DATA_NSC";
+            this.dATANSCDataGridViewTextBoxColumn1.Name = "dATANSCDataGridViewTextBoxColumn1";
+            this.dATANSCDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dATACRIACAODataGridViewTextBoxColumn1
+            // 
+            this.dATACRIACAODataGridViewTextBoxColumn1.DataPropertyName = "DATA_CRIACAO";
+            this.dATACRIACAODataGridViewTextBoxColumn1.HeaderText = "DATA_CRIACAO";
+            this.dATACRIACAODataGridViewTextBoxColumn1.Name = "dATACRIACAODataGridViewTextBoxColumn1";
+            this.dATACRIACAODataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // clientesBindingSource8
+            // 
+            this.clientesBindingSource8.DataMember = "Clientes";
+            this.clientesBindingSource8.DataSource = this.refrigeracaoDBDataSet4BindingSource;
+            // 
+            // refrigeracaoDBDataSet4BindingSource
+            // 
+            this.refrigeracaoDBDataSet4BindingSource.DataSource = this.refrigeracaoDBDataSet4;
+            this.refrigeracaoDBDataSet4BindingSource.Position = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.label1.Location = new System.Drawing.Point(38, 16);
+            this.label1.Location = new System.Drawing.Point(26, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(199, 29);
+            this.label1.Size = new System.Drawing.Size(414, 29);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Encontrar cliente:";
+            this.label1.Text = "Encontrar cliente para o novo serviço:";
             // 
             // button2
             // 
@@ -393,6 +500,16 @@
             this.tabPage3.TabIndex = 3;
             this.tabPage3.Text = "Compra";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // clientesBindingSource4
+            // 
+            this.clientesBindingSource4.DataMember = "Clientes";
+            this.clientesBindingSource4.DataSource = this.refrigeracaoDBDataSet2;
+            // 
+            // refrigeracaoDBDataSet2
+            // 
+            this.refrigeracaoDBDataSet2.DataSetName = "refrigeracaoDBDataSet2";
+            this.refrigeracaoDBDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // clientesBindingSource2
             // 
@@ -455,6 +572,20 @@
             // 
             this.clientesTableAdapter2.ClearBeforeFill = true;
             // 
+            // clientesBindingSource5
+            // 
+            this.clientesBindingSource5.DataMember = "Clientes";
+            this.clientesBindingSource5.DataSource = this.refrigeracaoDBDataSet4;
+            // 
+            // clientesTableAdapter3
+            // 
+            this.clientesTableAdapter3.ClearBeforeFill = true;
+            // 
+            // clientesBindingSource6
+            // 
+            this.clientesBindingSource6.DataMember = "Clientes";
+            this.clientesBindingSource6.DataSource = this.refrigeracaoDBDataSet1BindingSource;
+            // 
             // fKServiçosClientesBindingSource
             // 
             this.fKServiçosClientesBindingSource.DataMember = "FK_Serviços_Clientes";
@@ -476,11 +607,15 @@
             this.fillByToolStrip.ResumeLayout(false);
             this.fillByToolStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.refrigeracaoDBDataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.refrigeracaoDBDataSet4)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPesqToService)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.refrigeracaoDBDataSet4BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.refrigeracaoDBDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.refrigeracaoDBDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).EndInit();
@@ -490,6 +625,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.refrigeracaoDBDataSet1BindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKServiçosClientesBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -527,6 +664,10 @@
         private System.Windows.Forms.TextBox textPesq;
         private System.Windows.Forms.DataGridView dataGridViewPesqToService;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private refrigeracaoDBDataSet4 refrigeracaoDBDataSet4;
+        private System.Windows.Forms.BindingSource clientesBindingSource5;
+        private refrigeracaoDBDataSet4TableAdapters.ClientesTableAdapter clientesTableAdapter3;
+        private System.Windows.Forms.BindingSource clientesBindingSource6;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cPFCNPJDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn eMAILDataGridViewTextBoxColumn;
@@ -534,6 +675,18 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn tELEFONEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn eNDEREÇODataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dATANSCDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dATACRIACAODataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource clientesBindingSource7;
+        private System.Windows.Forms.BindingSource refrigeracaoDBDataSet4BindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cPFCNPJDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn eMAILDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nOMEDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tELEFONEDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn eNDEREÇODataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dATANSCDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dATACRIACAODataGridViewTextBoxColumn1;
+        private System.Windows.Forms.BindingSource clientesBindingSource8;
     }
 }
 
