@@ -42,7 +42,6 @@
             this.textBoxNomeProduto = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.textBoxDescricaoProduto = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.dateTimePickerTermino = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -64,7 +63,7 @@
             this.btn_editarInfo = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.idPagamento_Place = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_editarInfoPaga = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownOrcamento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPreco)).BeginInit();
             this.SuspendLayout();
@@ -129,8 +128,7 @@
             this.listEstadoServico.ItemHeight = 20;
             this.listEstadoServico.Items.AddRange(new object[] {
             "Concluido",
-            "Pendente",
-            ""});
+            "Pendente"});
             this.listEstadoServico.Location = new System.Drawing.Point(17, 462);
             this.listEstadoServico.Name = "listEstadoServico";
             this.listEstadoServico.Size = new System.Drawing.Size(139, 24);
@@ -254,16 +252,6 @@
             this.textBoxDescricaoProduto.ReadOnly = true;
             this.textBoxDescricaoProduto.Size = new System.Drawing.Size(362, 257);
             this.textBoxDescricaoProduto.TabIndex = 111;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(269, 344);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(15, 14);
-            this.checkBox1.TabIndex = 110;
-            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // dateTimePickerTermino
             // 
@@ -485,6 +473,7 @@
             this.btn_confirmarAlt.Text = "Confirmar";
             this.btn_confirmarAlt.UseVisualStyleBackColor = false;
             this.btn_confirmarAlt.Visible = false;
+            this.btn_confirmarAlt.Click += new System.EventHandler(this.btn_confirmarAlt_Click);
             // 
             // btn_editarInfo
             // 
@@ -496,6 +485,7 @@
             this.btn_editarInfo.TabIndex = 123;
             this.btn_editarInfo.Text = "Editar";
             this.btn_editarInfo.UseVisualStyleBackColor = true;
+            this.btn_editarInfo.Click += new System.EventHandler(this.btn_editarInfo_Click);
             // 
             // label3
             // 
@@ -523,16 +513,16 @@
             this.idPagamento_Place.TabIndex = 127;
             this.idPagamento_Place.Text = "id_place";
             // 
-            // button1
+            // btn_editarInfoPaga
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.button1.Location = new System.Drawing.Point(154, 625);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(196, 44);
-            this.button1.TabIndex = 128;
-            this.button1.Text = "Editar inf. Pagamento";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_editarInfoPaga.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btn_editarInfoPaga.Location = new System.Drawing.Point(154, 625);
+            this.btn_editarInfoPaga.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_editarInfoPaga.Name = "btn_editarInfoPaga";
+            this.btn_editarInfoPaga.Size = new System.Drawing.Size(196, 44);
+            this.btn_editarInfoPaga.TabIndex = 128;
+            this.btn_editarInfoPaga.Text = "Editar inf. Pagamento";
+            this.btn_editarInfoPaga.UseVisualStyleBackColor = true;
             // 
             // DetalhesServico
             // 
@@ -541,7 +531,7 @@
             this.AutoScroll = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(800, 775);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_editarInfoPaga);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.idPagamento_Place);
             this.Controls.Add(this.btn_cancelarAlt);
@@ -557,7 +547,6 @@
             this.Controls.Add(this.textBoxNomeProduto);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.textBoxDescricaoProduto);
-            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.dateTimePickerTermino);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -606,7 +595,6 @@
         private System.Windows.Forms.TextBox textBoxNomeProduto;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBoxDescricaoProduto;
-        private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.DateTimePicker dateTimePickerTermino;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
@@ -628,6 +616,6 @@
         private System.Windows.Forms.Button btn_editarInfo;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label idPagamento_Place;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_editarInfoPaga;
     }
 }

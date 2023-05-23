@@ -1,4 +1,5 @@
 ﻿using Google.Protobuf.WellKnownTypes;
+using PdfSharp.Pdf.Content.Objects;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,7 +24,15 @@ namespace RefrigeracaoLopes_App
 
         private void DetalhesServico_Load(object sender, EventArgs e)
         {
-            
+            datePickAreaEntrada.Enabled = false;
+            dateTimePickerTermino.Enabled = false;
+            listEstadoPagamento.Enabled = false;
+            listEstadoServico.Enabled = false;
+            numericUpDownOrcamento.Enabled = false;
+            numericUpDownPreco.Enabled = false;
+            textBoxNomeProduto.Enabled = false;
+            textBoxDescricaoProduto.Enabled = false;
+
 
             if (Form2.cpf_cnpj.ToString() != "" && Form2.cpf_cnpj.ToString() != " ")
             {
@@ -67,12 +76,12 @@ namespace RefrigeracaoLopes_App
                                     inputEnd.Text = reader.GetString(3);
                                     inputTelefone.Text = reader.GetString(4);
                                     datePickAreaEntrada.Value = reader.GetDateTime(5);
-                                    dateTimePickerTermino.Value = reader.GetDateTime(6) == null ? DateTime.Now : reader.GetDateTime(6);//******
-                                    listEstadoServico.SelectedItem = reader.GetInt32(7) == 1 ? "Concluido" : "Pendente";
+                                    dateTimePickerTermino.Value = reader.GetDateTime(6);
+                                    listEstadoServico.SelectedIndex = reader.GetInt32(7) == 1 ? 0 : 1;
                                     numericUpDownOrcamento.Value = reader.GetInt32(8) == 0 ? 1 : reader.GetInt32(8);//******
                                     textBoxDescricaoProduto.Text = reader.GetString(9);
                                     numericUpDownPreco.Value = reader.GetDecimal(10);
-                                    listEstadoPagamento.SelectedItem = reader.GetInt32(11) == 1 ? "Concluido" : "Pendente";
+                                    listEstadoPagamento.SelectedIndex = reader.GetInt32(11) == 1 ? 0 : 1;
                                     textBoxNomeProduto.Text = reader.GetString(12);
 
                                 }
@@ -102,6 +111,115 @@ namespace RefrigeracaoLopes_App
         private void datePickAreaEntrada_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_editarInfo_Click(object sender, EventArgs e)
+        {
+            dateTimePickerTermino.Enabled = true;
+            listEstadoPagamento.Enabled = false;
+            listEstadoServico.Enabled = true;
+            numericUpDownOrcamento.Enabled = true;
+            numericUpDownPreco.Enabled = true;
+            textBoxNomeProduto.Enabled = true;
+            textBoxDescricaoProduto.Enabled = true;
+            btn_editarInfoPaga.Enabled = false;
+
+            btn_confirmarAlt.Visible = true;
+            btn_cancelarAlt.Visible = true;
+        }
+
+        private void btn_confirmarAlt_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Gostaria de atualizar as informações do pagamento também?",
+                      "Informação", MessageBoxButtons.YesNo);
+            switch (dr)
+            {
+                case DialogResult.Yes:
+                    MessageBox.Show("YES");
+                    //Enviar para um form com as informações do pagamento após atualizar as informações do serviço.
+                    atualizarInformacoes(true);
+                    break;
+                case DialogResult.No:
+
+                    //Continuar a atualização as informações do serviço
+                    atualizarInformacoes(false);
+                    break;
+            }
+
+
+
+        }
+
+        private void atualizarInformacoes(bool resposta)
+        {
+            String resultado = "";
+            String connectionString = ConfigurationManager.ConnectionStrings["RefrigeracaoLopes_App.Properties.Settings.refrigeracaoDB"].ConnectionString;
+            if (DateTime.Compare(DateTime.Parse(dateTimePickerTermino.Text), DateTime.Parse(datePickAreaEntrada.Text)) == -1)
+            {
+                resultado = "A data de termino não pode ser anterior a data de entrada!";
+            }
+            else
+            {
+                if (numericUpDownOrcamento.Value.ToString().Length == 0 || numericUpDownPreco.Value.ToString().Length == 0 || textBoxNomeProduto.Text.ToString().Length == 0 || textBoxDescricaoProduto.Text.ToString().Length == 0)
+                {
+                    resultado = "Verifique os dados que inseriu, nenhum deles pode ser vazio.";
+                    
+                }
+                else
+                {
+                    try { 
+                        string cmdString = "UPDATE Serviços SET [PRECO] = @PRECO, [ESTADO] = @ESTADO, [INFO] = @INFO, [DATA_TERMINO] = @DATA_TERMINO, [NUMERO_ORÇAMENTO] = @NUMERO_ORÇAMENTO WHERE ID = @ServicoID";
+
+                        using (SqlConnection connectionUpdate = new SqlConnection(connectionString))
+                    {
+
+                        using (SqlCommand commandUpdate = new SqlCommand(cmdString, connectionUpdate))
+                        {
+                                Decimal precoValue = numericUpDownPreco.Value;
+                                int estadoValue = listEstadoServico.SelectedItem.ToString() == "Concluido" ? 1 : 2;
+                                String infoValue = textBoxDescricaoProduto.Text;
+                                DateTime dataTerminoValue = dateTimePickerTermino.Value;
+                                int numeroOrcamentoValue = int.Parse(numericUpDownOrcamento.Value.ToString());
+
+                            commandUpdate.Parameters.AddWithValue("@PRECO", precoValue);
+                            commandUpdate.Parameters.AddWithValue("@ESTADO", estadoValue);
+                            commandUpdate.Parameters.AddWithValue("@INFO", infoValue);
+                            commandUpdate.Parameters.AddWithValue("@DATA_TERMINO", dataTerminoValue);
+                            commandUpdate.Parameters.AddWithValue("@NUMERO_ORÇAMENTO", numeroOrcamentoValue);
+                            commandUpdate.Parameters.AddWithValue("@ServicoID", int.Parse(idServico_Place.ToString()));
+
+                            commandUpdate.Connection.Open();
+
+                            int res = commandUpdate.ExecuteNonQuery();
+                            commandUpdate.Connection.Close();
+                            if (res < 0)
+                            {
+                                resultado = "Houve um erro ao atualizar os dados, tente novamente!";
+                            }
+                            else
+                            {
+                                resultado = "Dados atualizados corretamente!";
+                            }
+                        }
+                    }
+                    }
+                    catch (Exception ex) {
+                        Console.WriteLine(ex.ToString());
+                    }
+                }
+
+            }
+
+
+            MessageBox.Show(resultado); 
+
+            //IF PARA VER SE O QUER ATUALZIAR O PAG
+            if (resposta)
+            {
+                //abrir pagamento para atualizar os dados
+                MessageBox.Show("ABRIRÁ O PAGAMENTO AQUI");
+            }
+             
         }
     }
 }

@@ -82,7 +82,7 @@ namespace RefrigeracaoLopes_App
                                 catch (Exception ex)
                                 {
                                     
-                                    Console.WriteLine(ex.StackTrace);
+                                    Console.WriteLine(ex.ToString());
                                 }
                             }
                             connection.Close();
@@ -102,17 +102,18 @@ namespace RefrigeracaoLopes_App
 
         private void listServicos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string[] listaServico = listServicos.SelectedItem.ToString().Split('-');
+            if(listServicos.SelectedItem != null) { 
+                string[] listaServico = listServicos.SelectedItem.ToString().Split('-');
             
 
-            id_Servico = int.Parse(listaServico[0]);
-            cpf_cnpj = listaServico[1];
-            id_Pagamento = int.Parse(listaServico[4]);
+                id_Servico = int.Parse(listaServico[0]);
+                cpf_cnpj = listaServico[1];
+                id_Pagamento = int.Parse(listaServico[4]);
 
-            DetalhesServico detalhesServico = new DetalhesServico();
+                DetalhesServico detalhesServico = new DetalhesServico();
 
-            detalhesServico.Show();
-            
+                detalhesServico.Show();
+            }
 
 
         }

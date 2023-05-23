@@ -101,8 +101,8 @@ namespace RefrigeracaoLopes_App
            
             //Atribuições dos valores
 
-            estadoDoServico = listEstadoServico.SelectedIndex;
-            estadoDoPagamento = listEstadoPagamento.SelectedIndex;
+            estadoDoServico = listEstadoServico.SelectedIndex + 2;
+            estadoDoPagamento = listEstadoPagamento.SelectedIndex + 2;
             
 
             dateEntrada = DateTime.Parse(datePickAreaEntrada.Text.ToString());
@@ -115,15 +115,16 @@ namespace RefrigeracaoLopes_App
             descricaoProduto = textBoxDescricaoProduto.Text.ToString() != "" ? textBoxDescricaoProduto.Text.ToString() : "Sem descrição." ;
 
             nomeProduto = textBoxNomeProduto.Text.ToString();
-
+            NumberFormatInfo nfi = new NumberFormatInfo();
+            nfi.NumberDecimalSeparator = ".";
             int idServico;
             int idPagamento;
-
+            Console.WriteLine(estadoDoPagamento);
             if (estadoDoPagamento >= 0)
             {
                 String connectionString = ConfigurationManager.ConnectionStrings["RefrigeracaoLopes_App.Properties.Settings.refrigeracaoDB"].ConnectionString;
 
-                string cmdString = "INSERT INTO [dbo].[Serviços] ([CPF_CNPJ],[DATA_ENTRADA],[PRECO],[PAGAMENTO_ID],[ESTADO],[INFO],[DATA_TERMINO],[NUMERO_ORÇAMENTO]) VALUES (@CPF_CNPJ,@DATA_ENTRADA,@PRECO,@PAGAMENTO_ID,@ESTADO,@INFO,@DATA_TERMINO,@NUMERO_ORÇAMENTO); SELECT SCOPE_IDENTITY();";
+                string cmdString = "INSERT INTO Serviços ([CPF_CNPJ],[DATA_ENTRADA],[PRECO], [PAGAMENTO_ID],[ESTADO],[INFO],[DATA_TERMINO],[NUMERO_ORÇAMENTO]) VALUES (@CPF_CNPJ,@DATA_ENTRADA,@PRECO,@PAGAMENTO_ID,@ESTADO,@INFO,@DATA_TERMINO, @NUMERO_ORÇAMENTO); SELECT SCOPE_IDENTITY();";
                 try
                 {
                     using (SqlConnection connection = new SqlConnection(connectionString))
@@ -132,19 +133,27 @@ namespace RefrigeracaoLopes_App
                         using (SqlCommand command = new SqlCommand(cmdString, connection))
                         {
 
-                            command.Parameters.AddWithValue("@CPF_CNPJ", Principal.cpf);
-                            command.Parameters.AddWithValue("@DATA_ENTRADA", dateEntrada);
-                            command.Parameters.AddWithValue("@PRECO", precoTotal);
-                            command.Parameters.AddWithValue("@PAGAMENTO_ID", DBNull.Value);
-                            command.Parameters.AddWithValue("@ESTADO", estadoDoServico);
-                            command.Parameters.AddWithValue("@INFO", descricaoProduto);
-                            command.Parameters.AddWithValue("@DATA_TERMINO", dateTermino);
-                            command.Parameters.AddWithValue("@NUMERO_ORÇAMENTO", numeroOrcamento);
+                                command.Parameters.AddWithValue("@CPF_CNPJ", Principal.cpf);
+                                command.Parameters.AddWithValue("@DATA_ENTRADA", dateEntrada);
+                                command.Parameters.AddWithValue("@PRECO", precoTotal.ToString(nfi));
+                                command.Parameters.AddWithValue("@PAGAMENTO_ID", DBNull.Value);
+                                command.Parameters.AddWithValue("@ESTADO", estadoDoServico);
+                                command.Parameters.AddWithValue("@INFO", descricaoProduto);
+                                command.Parameters.AddWithValue("@DATA_TERMINO", dateTermino);
+                                command.Parameters.AddWithValue("@NUMERO_ORÇAMENTO", numeroOrcamento);
 
+                                
+
+                                string queryString = command.CommandText;
+                                
+                            foreach (SqlParameter p in command.Parameters)
+                                {
+                                queryString = queryString.Replace(p.ParameterName, p.Value.ToString());
+                                }
+                            Console.WriteLine(queryString);
                             command.Connection.Open();
 
                             idServico = Convert.ToInt32(command.ExecuteScalar());
-
 
                             command.Connection.Close();
 
@@ -155,7 +164,7 @@ namespace RefrigeracaoLopes_App
                         try {
 
                             PagamentoForm pagamentoForm = new PagamentoForm();
-                            pagamentoForm.listEstadoPagamento.SelectedItem = estadoDoPagamento == 1 ? "Concluido" : "Pendente";
+                            pagamentoForm.listEstadoPagamento.SelectedIndex = estadoDoPagamento == 1 ? 1 : 2;
                             pagamentoForm.listEstadoPagamento.Enabled = false;
                             pagamentoForm.ShowDialog();
                         
@@ -235,7 +244,7 @@ namespace RefrigeracaoLopes_App
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.StackTrace);
+                    Console.WriteLine(ex.ToString());
                 }
             }
             this.Close();

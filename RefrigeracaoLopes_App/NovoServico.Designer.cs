@@ -236,10 +236,9 @@
             0,
             0});
             this.numericUpDownPreco.Name = "numericUpDownPreco";
-            this.numericUpDownPreco.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.numericUpDownPreco.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.numericUpDownPreco.Size = new System.Drawing.Size(105, 23);
             this.numericUpDownPreco.TabIndex = 35;
-            this.numericUpDownPreco.ThousandsSeparator = true;
             // 
             // datePickAreaEntrada
             // 
