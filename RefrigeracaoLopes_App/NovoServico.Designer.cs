@@ -72,7 +72,7 @@
             this.inputCPF.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.inputCPF.Name = "inputCPF";
             this.inputCPF.ReadOnly = true;
-            this.inputCPF.Size = new System.Drawing.Size(934, 23);
+            this.inputCPF.Size = new System.Drawing.Size(950, 23);
             this.inputCPF.TabIndex = 31;
             // 
             // label7
@@ -97,7 +97,7 @@
             this.inputEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.inputEmail.Name = "inputEmail";
             this.inputEmail.ReadOnly = true;
-            this.inputEmail.Size = new System.Drawing.Size(934, 23);
+            this.inputEmail.Size = new System.Drawing.Size(950, 23);
             this.inputEmail.TabIndex = 23;
             // 
             // inputNome
@@ -109,7 +109,7 @@
             this.inputNome.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.inputNome.Name = "inputNome";
             this.inputNome.ReadOnly = true;
-            this.inputNome.Size = new System.Drawing.Size(934, 23);
+            this.inputNome.Size = new System.Drawing.Size(950, 23);
             this.inputNome.TabIndex = 21;
             // 
             // label4
@@ -170,7 +170,7 @@
             this.inputEnd.Multiline = true;
             this.inputEnd.Name = "inputEnd";
             this.inputEnd.ReadOnly = true;
-            this.inputEnd.Size = new System.Drawing.Size(934, 44);
+            this.inputEnd.Size = new System.Drawing.Size(950, 44);
             this.inputEnd.TabIndex = 29;
             // 
             // label2
@@ -195,7 +195,7 @@
             this.inputTelefone.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.inputTelefone.Name = "inputTelefone";
             this.inputTelefone.ReadOnly = true;
-            this.inputTelefone.Size = new System.Drawing.Size(934, 23);
+            this.inputTelefone.Size = new System.Drawing.Size(950, 23);
             this.inputTelefone.TabIndex = 25;
             // 
             // label6
@@ -216,7 +216,7 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(187, 677);
+            this.label5.Location = new System.Drawing.Point(187, 696);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(58, 17);
             this.label5.TabIndex = 34;
@@ -229,7 +229,7 @@
             this.numericUpDownPreco.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.numericUpDownPreco.DecimalPlaces = 2;
             this.numericUpDownPreco.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDownPreco.Location = new System.Drawing.Point(271, 670);
+            this.numericUpDownPreco.Location = new System.Drawing.Point(271, 689);
             this.numericUpDownPreco.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -246,7 +246,7 @@
             this.datePickAreaEntrada.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.datePickAreaEntrada.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.datePickAreaEntrada.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.datePickAreaEntrada.Location = new System.Drawing.Point(27, 365);
+            this.datePickAreaEntrada.Location = new System.Drawing.Point(27, 384);
             this.datePickAreaEntrada.Name = "datePickAreaEntrada";
             this.datePickAreaEntrada.Size = new System.Drawing.Size(220, 23);
             this.datePickAreaEntrada.TabIndex = 41;
@@ -257,7 +257,7 @@
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(26, 330);
+            this.label8.Location = new System.Drawing.Point(26, 349);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(62, 17);
             this.label8.TabIndex = 42;
@@ -269,7 +269,7 @@
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(22, 406);
+            this.label9.Location = new System.Drawing.Point(22, 425);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(64, 17);
             this.label9.TabIndex = 43;
@@ -283,7 +283,7 @@
             this.dateTimePickerTermino.Enabled = false;
             this.dateTimePickerTermino.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerTermino.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerTermino.Location = new System.Drawing.Point(27, 439);
+            this.dateTimePickerTermino.Location = new System.Drawing.Point(27, 458);
             this.dateTimePickerTermino.Name = "dateTimePickerTermino";
             this.dateTimePickerTermino.Size = new System.Drawing.Size(220, 23);
             this.dateTimePickerTermino.TabIndex = 44;
@@ -294,7 +294,7 @@
             this.checkBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.checkBox1.AutoSize = true;
             this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(108, 409);
+            this.checkBox1.Location = new System.Drawing.Point(108, 428);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(15, 14);
             this.checkBox1.TabIndex = 45;
@@ -306,7 +306,7 @@
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(440, 422);
+            this.label10.Location = new System.Drawing.Point(456, 441);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(144, 17);
             this.label10.TabIndex = 47;
@@ -318,7 +318,7 @@
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(440, 339);
+            this.label11.Location = new System.Drawing.Point(456, 358);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(123, 17);
             this.label11.TabIndex = 49;
@@ -330,7 +330,7 @@
             this.label12.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(23, 478);
+            this.label12.Location = new System.Drawing.Point(23, 497);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(125, 17);
             this.label12.TabIndex = 50;
@@ -342,7 +342,7 @@
             this.label13.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(23, 553);
+            this.label13.Location = new System.Drawing.Point(23, 572);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(151, 17);
             this.label13.TabIndex = 51;
@@ -352,16 +352,18 @@
             // listEstadoPagamento
             // 
             this.listEstadoPagamento.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.listEstadoPagamento.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.listEstadoPagamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listEstadoPagamento.FormattingEnabled = true;
             this.listEstadoPagamento.ItemHeight = 17;
             this.listEstadoPagamento.Items.AddRange(new object[] {
             "Pendente",
             "Concluido"});
-            this.listEstadoPagamento.Location = new System.Drawing.Point(29, 590);
+            this.listEstadoPagamento.Location = new System.Drawing.Point(25, 592);
             this.listEstadoPagamento.Name = "listEstadoPagamento";
-            this.listEstadoPagamento.Size = new System.Drawing.Size(224, 21);
+            this.listEstadoPagamento.Size = new System.Drawing.Size(224, 38);
             this.listEstadoPagamento.TabIndex = 54;
+            this.listEstadoPagamento.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listEstadoPagamento_DrawItem);
             // 
             // btn_cancelarAlt
             // 
@@ -369,7 +371,7 @@
             this.btn_cancelarAlt.BackColor = System.Drawing.Color.Maroon;
             this.btn_cancelarAlt.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.btn_cancelarAlt.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_cancelarAlt.Location = new System.Drawing.Point(894, 657);
+            this.btn_cancelarAlt.Location = new System.Drawing.Point(910, 676);
             this.btn_cancelarAlt.Margin = new System.Windows.Forms.Padding(2);
             this.btn_cancelarAlt.Name = "btn_cancelarAlt";
             this.btn_cancelarAlt.Size = new System.Drawing.Size(168, 47);
@@ -383,7 +385,7 @@
             this.btn_confirmarAlt.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btn_confirmarAlt.BackColor = System.Drawing.Color.LawnGreen;
             this.btn_confirmarAlt.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.btn_confirmarAlt.Location = new System.Drawing.Point(894, 589);
+            this.btn_confirmarAlt.Location = new System.Drawing.Point(910, 608);
             this.btn_confirmarAlt.Margin = new System.Windows.Forms.Padding(2);
             this.btn_confirmarAlt.Name = "btn_confirmarAlt";
             this.btn_confirmarAlt.Size = new System.Drawing.Size(168, 47);
@@ -397,7 +399,7 @@
             this.label14.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(23, 628);
+            this.label14.Location = new System.Drawing.Point(23, 647);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(101, 17);
             this.label14.TabIndex = 58;
@@ -409,7 +411,7 @@
             this.numericUpDownOrcamento.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.numericUpDownOrcamento.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.numericUpDownOrcamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDownOrcamento.Location = new System.Drawing.Point(30, 670);
+            this.numericUpDownOrcamento.Location = new System.Drawing.Point(30, 689);
             this.numericUpDownOrcamento.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -424,22 +426,24 @@
             // listEstadoServico
             // 
             this.listEstadoServico.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.listEstadoServico.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.listEstadoServico.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listEstadoServico.FormattingEnabled = true;
             this.listEstadoServico.ItemHeight = 17;
             this.listEstadoServico.Items.AddRange(new object[] {
             "Pendente",
             "Concluido"});
-            this.listEstadoServico.Location = new System.Drawing.Point(29, 515);
+            this.listEstadoServico.Location = new System.Drawing.Point(27, 517);
             this.listEstadoServico.Name = "listEstadoServico";
-            this.listEstadoServico.Size = new System.Drawing.Size(224, 21);
+            this.listEstadoServico.Size = new System.Drawing.Size(224, 38);
             this.listEstadoServico.TabIndex = 60;
+            this.listEstadoServico.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listEstadoServico_DrawItem);
             // 
             // textBoxDescricaoProduto
             // 
             this.textBoxDescricaoProduto.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.textBoxDescricaoProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDescricaoProduto.Location = new System.Drawing.Point(444, 447);
+            this.textBoxDescricaoProduto.Location = new System.Drawing.Point(460, 466);
             this.textBoxDescricaoProduto.MaximumSize = new System.Drawing.Size(382, 257);
             this.textBoxDescricaoProduto.MinimumSize = new System.Drawing.Size(382, 257);
             this.textBoxDescricaoProduto.Multiline = true;
@@ -451,7 +455,7 @@
             // 
             this.textBoxNomeProduto.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.textBoxNomeProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNomeProduto.Location = new System.Drawing.Point(444, 367);
+            this.textBoxNomeProduto.Location = new System.Drawing.Point(460, 386);
             this.textBoxNomeProduto.Name = "textBoxNomeProduto";
             this.textBoxNomeProduto.Size = new System.Drawing.Size(347, 23);
             this.textBoxNomeProduto.TabIndex = 48;
@@ -459,7 +463,7 @@
             // NovoServico
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1105, 732);
+            this.ClientSize = new System.Drawing.Size(1121, 771);
             this.Controls.Add(this.listEstadoServico);
             this.Controls.Add(this.numericUpDownOrcamento);
             this.Controls.Add(this.label14);

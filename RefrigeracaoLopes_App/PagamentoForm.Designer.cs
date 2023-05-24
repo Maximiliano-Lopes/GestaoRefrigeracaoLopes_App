@@ -54,7 +54,7 @@
             // 
             this.btn_confirmarInfo.BackColor = System.Drawing.Color.LawnGreen;
             this.btn_confirmarInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.btn_confirmarInfo.Location = new System.Drawing.Point(339, 580);
+            this.btn_confirmarInfo.Location = new System.Drawing.Point(331, 580);
             this.btn_confirmarInfo.Margin = new System.Windows.Forms.Padding(2);
             this.btn_confirmarInfo.Name = "btn_confirmarInfo";
             this.btn_confirmarInfo.Size = new System.Drawing.Size(136, 47);
@@ -141,7 +141,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.label13.Location = new System.Drawing.Point(12, 159);
+            this.label13.Location = new System.Drawing.Point(13, 160);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(286, 31);
             this.label13.TabIndex = 63;
@@ -153,7 +153,7 @@
             this.numericUpDownPreco.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.numericUpDownPreco.DecimalPlaces = 2;
             this.numericUpDownPreco.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.numericUpDownPreco.Location = new System.Drawing.Point(137, 475);
+            this.numericUpDownPreco.Location = new System.Drawing.Point(138, 514);
             this.numericUpDownPreco.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -171,7 +171,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.label5.Location = new System.Drawing.Point(13, 479);
+            this.label5.Location = new System.Drawing.Point(14, 518);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(110, 31);
             this.label5.TabIndex = 65;
@@ -205,6 +205,7 @@
             // 
             // listMeioPagamento
             // 
+            this.listMeioPagamento.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.listMeioPagamento.FormattingEnabled = true;
             this.listMeioPagamento.Items.AddRange(new object[] {
             "Dinheiro",
@@ -214,10 +215,11 @@
             "Contactless",
             "PIX",
             "Cartão_de_crédit"});
-            this.listMeioPagamento.Location = new System.Drawing.Point(18, 256);
+            this.listMeioPagamento.Location = new System.Drawing.Point(18, 274);
             this.listMeioPagamento.Name = "listMeioPagamento";
-            this.listMeioPagamento.Size = new System.Drawing.Size(224, 17);
+            this.listMeioPagamento.Size = new System.Drawing.Size(224, 95);
             this.listMeioPagamento.TabIndex = 70;
+            this.listMeioPagamento.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listMeioPagamento_DrawItem);
             // 
             // label3
             // 
@@ -225,7 +227,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.label3.Location = new System.Drawing.Point(12, 219);
+            this.label3.Location = new System.Drawing.Point(13, 238);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 31);
             this.label3.TabIndex = 69;
@@ -234,14 +236,16 @@
             // 
             // listEstadoPagamento
             // 
+            this.listEstadoPagamento.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.listEstadoPagamento.FormattingEnabled = true;
             this.listEstadoPagamento.Items.AddRange(new object[] {
             "Concluido",
             "Pendente"});
-            this.listEstadoPagamento.Location = new System.Drawing.Point(18, 193);
+            this.listEstadoPagamento.Location = new System.Drawing.Point(19, 194);
             this.listEstadoPagamento.Name = "listEstadoPagamento";
-            this.listEstadoPagamento.Size = new System.Drawing.Size(224, 17);
+            this.listEstadoPagamento.Size = new System.Drawing.Size(224, 30);
             this.listEstadoPagamento.TabIndex = 71;
+            this.listEstadoPagamento.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listEstadoPagamento_DrawItem);
             // 
             // label8
             // 
@@ -249,7 +253,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.label8.Location = new System.Drawing.Point(12, 287);
+            this.label8.Location = new System.Drawing.Point(13, 393);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(259, 31);
             this.label8.TabIndex = 73;
@@ -263,7 +267,7 @@
             this.datePickAreaEntrada.Checked = false;
             this.datePickAreaEntrada.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.datePickAreaEntrada.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.datePickAreaEntrada.Location = new System.Drawing.Point(18, 321);
+            this.datePickAreaEntrada.Location = new System.Drawing.Point(19, 427);
             this.datePickAreaEntrada.Name = "datePickAreaEntrada";
             this.datePickAreaEntrada.Size = new System.Drawing.Size(220, 35);
             this.datePickAreaEntrada.TabIndex = 72;

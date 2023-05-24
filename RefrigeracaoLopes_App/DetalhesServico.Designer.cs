@@ -122,17 +122,20 @@
             // 
             // listEstadoServico
             // 
+            this.listEstadoServico.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.listEstadoServico.Enabled = false;
             this.listEstadoServico.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listEstadoServico.FormattingEnabled = true;
             this.listEstadoServico.ItemHeight = 20;
             this.listEstadoServico.Items.AddRange(new object[] {
-            "Concluido",
-            "Pendente"});
+            "Pendente",
+            "Concluido"});
             this.listEstadoServico.Location = new System.Drawing.Point(17, 462);
             this.listEstadoServico.Name = "listEstadoServico";
-            this.listEstadoServico.Size = new System.Drawing.Size(139, 24);
+            this.listEstadoServico.Size = new System.Drawing.Size(139, 44);
             this.listEstadoServico.TabIndex = 122;
+            this.listEstadoServico.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listEstadoServico_DrawItem);
+            this.listEstadoServico.SelectedIndexChanged += new System.EventHandler(this.TrocouDeItem);
             // 
             // numericUpDownOrcamento
             // 
@@ -164,17 +167,19 @@
             // 
             // listEstadoPagamento
             // 
+            this.listEstadoPagamento.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.listEstadoPagamento.Enabled = false;
             this.listEstadoPagamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listEstadoPagamento.FormattingEnabled = true;
             this.listEstadoPagamento.ItemHeight = 20;
             this.listEstadoPagamento.Items.AddRange(new object[] {
-            "Concluido",
-            "Pendente"});
+            "Pendente",
+            "Concluido"});
             this.listEstadoPagamento.Location = new System.Drawing.Point(177, 462);
             this.listEstadoPagamento.Name = "listEstadoPagamento";
-            this.listEstadoPagamento.Size = new System.Drawing.Size(167, 24);
+            this.listEstadoPagamento.Size = new System.Drawing.Size(167, 44);
             this.listEstadoPagamento.TabIndex = 117;
+            this.listEstadoPagamento.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listEstadoPagamento_DrawItem);
             // 
             // label13
             // 

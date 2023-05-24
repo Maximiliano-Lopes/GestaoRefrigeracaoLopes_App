@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Google.Protobuf.WellKnownTypes;
+using PdfSharp.Pdf.Content.Objects;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -8,6 +10,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -115,10 +118,13 @@ namespace RefrigeracaoLopes_App
             descricaoProduto = textBoxDescricaoProduto.Text.ToString() != "" ? textBoxDescricaoProduto.Text.ToString() : "Sem descrição." ;
 
             nomeProduto = textBoxNomeProduto.Text.ToString();
+
             NumberFormatInfo nfi = new NumberFormatInfo();
             nfi.NumberDecimalSeparator = ".";
+            
             int idServico;
             int idPagamento;
+
             Console.WriteLine(estadoDoPagamento);
             if (estadoDoPagamento >= 0)
             {
@@ -253,6 +259,52 @@ namespace RefrigeracaoLopes_App
         private void btn_cancelarAlt_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void listEstadoServico_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            e.DrawBackground();
+
+            // Verifica se o item está selecionado
+            if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
+            {
+                // Define a cor de fundo quando o item está selecionado
+                e.Graphics.FillRectangle(Brushes.LightGreen, e.Bounds);
+            }
+            else
+            {
+                // Define a cor de fundo padrão para os itens não selecionados
+                e.Graphics.FillRectangle(Brushes.Transparent, e.Bounds);
+            }
+
+            // Desenha o texto do item
+            if (e.Index >= 0)
+            {
+                e.Graphics.DrawString(listEstadoServico.Items[e.Index].ToString(), e.Font, Brushes.Black, e.Bounds, StringFormat.GenericDefault);
+            }
+        }
+
+        private void listEstadoPagamento_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            e.DrawBackground();
+
+            // Verifica se o item está selecionado
+            if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
+            {
+                // Define a cor de fundo quando o item está selecionado
+                e.Graphics.FillRectangle(Brushes.LightGreen, e.Bounds);
+            }
+            else
+            {
+                // Define a cor de fundo padrão para os itens não selecionados
+                e.Graphics.FillRectangle(Brushes.Transparent, e.Bounds);
+            }
+
+            // Desenha o texto do item
+            if (e.Index >= 0)
+            {
+                e.Graphics.DrawString(listEstadoServico.Items[e.Index].ToString(), e.Font, Brushes.Black, e.Bounds, StringFormat.GenericDefault);
+            }
         }
     }
 }

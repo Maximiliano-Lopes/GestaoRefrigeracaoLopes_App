@@ -147,62 +147,56 @@ namespace RefrigeracaoLopes_App
 
             if (inputCPF.Text != Principal.cpf | inputNome.Text != Principal.nome | inputEmail.Text != Principal.email | inputTelefone.Text != Principal.telefone | inputEnd.Text != Principal.endereco | resCompareDates != 0)
             {
+
                 try
                 {
+                    String connectionString = ConfigurationManager.ConnectionStrings["RefrigeracaoLopes_App.Properties.Settings.refrigeracaoDB"].ConnectionString;
 
-                    try
+                    string cmdString = "UPDATE Clientes SET [CPF_CNPJ] = @CPF_CNPJ, [EMAIL] = @EMAIL,[NOME] = @NOME,[TELEFONE] = @TELEFONE,[ENDEREÇO] = @ENDERECO,[DATA_NSC] = @DATA_NSC " +
+                        "WHERE CPF_CNPJ = @CPF_CNPJ_ANTIGO;";
+
+                    using (SqlConnection connection = new SqlConnection(connectionString))
                     {
-                        String connectionString = ConfigurationManager.ConnectionStrings["RefrigeracaoLopes_App.Properties.Settings.refrigeracaoDB"].ConnectionString;
 
-                        string cmdString = "UPDATE Clientes SET [CPF_CNPJ] = @CPF_CNPJ, [EMAIL] = @EMAIL,[NOME] = @NOME,[TELEFONE] = @TELEFONE,[ENDEREÇO] = @ENDERECO,[DATA_NSC] = @DATA_NSC " +
-                            "WHERE CPF_CNPJ = @CPF_CNPJ_ANTIGO;";
-
-                        using (SqlConnection connection = new SqlConnection(connectionString))
+                        using (SqlCommand command = new SqlCommand(cmdString, connection))
                         {
-
-                            using (SqlCommand command = new SqlCommand(cmdString, connection))
-                            {
 
 
 
                                 
-                                command.Parameters.AddWithValue("@CPF_CNPJ_ANTIGO", inputCPFAntigo);
-                                command.Parameters.AddWithValue("@CPF_CNPJ", cliente.getCpf());
-                                command.Parameters.AddWithValue("@EMAIL", cliente.getEmail());
-                                command.Parameters.AddWithValue("@NOME", cliente.getNome());
-                                command.Parameters.AddWithValue("@TELEFONE", cliente.getTelefone());
-                                command.Parameters.AddWithValue("@ENDERECO", cliente.getEndereco());
-                                command.Parameters.AddWithValue("@DATA_NSC", cliente.getDataNsc());
+                            command.Parameters.AddWithValue("@CPF_CNPJ_ANTIGO", inputCPFAntigo);
+                            command.Parameters.AddWithValue("@CPF_CNPJ", cliente.getCpf());
+                            command.Parameters.AddWithValue("@EMAIL", cliente.getEmail());
+                            command.Parameters.AddWithValue("@NOME", cliente.getNome());
+                            command.Parameters.AddWithValue("@TELEFONE", cliente.getTelefone());
+                            command.Parameters.AddWithValue("@ENDERECO", cliente.getEndereco());
+                            command.Parameters.AddWithValue("@DATA_NSC", cliente.getDataNsc());
 
-                                command.Connection.Open();
-                                int result = command.ExecuteNonQuery();
+                            command.Connection.Open();
+                            int result = command.ExecuteNonQuery();
 
-                                command.Connection.Close();
+                            command.Connection.Close();
 
-                                // Check Error
-                                if (result < 0)
-                                {
-                                    MessageBox.Show("Houve um erro ao Criar o cliente, tente novamente!");
-                                }
-                                else
-                                {
-                                    
-                                    MessageBox.Show("Dados do Cliente " + cliente.getNome()+ " criados com sucesso!");
-                                    this.Close();
-                                }
-
+                            // Check Error
+                            if (result < 0)
+                            {
+                                MessageBox.Show("Houve um erro ao Criar o cliente, tente novamente!");
                             }
+                            else
+                            {
+                                    
+                                MessageBox.Show("Dados do Cliente " + cliente.getNome()+ " criados com sucesso!");
+                                this.Close();
+                            }
+
                         }
                     }
-                    catch (SqlException ex)
-                    {
-                        Console.WriteLine(ex.StackTrace);
-                    }
                 }
-                catch (Exception ex)
+                catch (SqlException ex)
                 {
                     Console.WriteLine(ex.StackTrace);
                 }
+                
             }
         }
 

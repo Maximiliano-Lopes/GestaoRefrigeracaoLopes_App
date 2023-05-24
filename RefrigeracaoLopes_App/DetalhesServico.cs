@@ -7,6 +7,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -17,11 +18,12 @@ namespace RefrigeracaoLopes_App
 {
     public partial class DetalhesServico : Form
     {
+         int estadoValue;
         public DetalhesServico()
         {
             InitializeComponent();
         }
-
+        
         private void DetalhesServico_Load(object sender, EventArgs e)
         {
             datePickAreaEntrada.Enabled = false;
@@ -42,7 +44,7 @@ namespace RefrigeracaoLopes_App
 
 
                 String connectionString = ConfigurationManager.ConnectionStrings["RefrigeracaoLopes_App.Properties.Settings.refrigeracaoDB"].ConnectionString;
-                
+
                 try
                 {
                     string queryString = "SELECT Cliente.ID, Cliente.NOME, Cliente.EMAIL, Cliente.ENDEREÇO, Cliente.TELEFONE, Servicos.DATA_ENTRADA, Servicos.DATA_TERMINO, Servicos.ESTADO, Servicos.NUMERO_ORÇAMENTO, Servicos.INFO, Servicos.PRECO, Pagamento.ESTADO, Pagamento.PRODUTO FROM [dbo].[Serviços] as Servicos, [dbo].[Clientes] as Cliente, [dbo].[Pagamento] AS Pagamento ";
@@ -57,7 +59,7 @@ namespace RefrigeracaoLopes_App
 
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
-                           
+
                             while (reader.Read())
                             {
                                 try
@@ -68,8 +70,8 @@ namespace RefrigeracaoLopes_App
                                     //        7                     8                   9              10               11              12
                                     //Servicos.ESTADO, Servicos.NUMERO_ORÇAMENTO, Servicos.INFO, Servicos.PRECO, Pagamento.ESTADO, Pagamento.PRODUTO
 
-                                    
-                                    
+
+
                                     idCliente_Place.Text = reader.GetInt32(0).ToString();
                                     inputNome.Text = reader.GetString(1);
                                     inputEmail.Text = reader.GetString(2);
@@ -77,11 +79,11 @@ namespace RefrigeracaoLopes_App
                                     inputTelefone.Text = reader.GetString(4);
                                     datePickAreaEntrada.Value = reader.GetDateTime(5);
                                     dateTimePickerTermino.Value = reader.GetDateTime(6);
-                                    listEstadoServico.SelectedIndex = reader.GetInt32(7) == 1 ? 0 : 1;
+                                    listEstadoServico.SelectedIndex = reader.GetInt32(7) == 1 ? 1 : 0;
                                     numericUpDownOrcamento.Value = reader.GetInt32(8) == 0 ? 1 : reader.GetInt32(8);//******
                                     textBoxDescricaoProduto.Text = reader.GetString(9);
                                     numericUpDownPreco.Value = reader.GetDecimal(10);
-                                    listEstadoPagamento.SelectedIndex = reader.GetInt32(11) == 1 ? 0 : 1;
+                                    listEstadoPagamento.SelectedIndex = reader.GetInt32(11) == 1 ? 1 : 0;
                                     textBoxNomeProduto.Text = reader.GetString(12);
 
                                 }
@@ -91,7 +93,7 @@ namespace RefrigeracaoLopes_App
                                     Console.WriteLine(ex.ToString());
                                 }
                             }
-                            
+
                             connection.Close();
                         }
                     }
@@ -126,6 +128,7 @@ namespace RefrigeracaoLopes_App
 
             btn_confirmarAlt.Visible = true;
             btn_cancelarAlt.Visible = true;
+            
         }
 
         private void btn_confirmarAlt_Click(object sender, EventArgs e)
@@ -154,6 +157,11 @@ namespace RefrigeracaoLopes_App
         {
             String resultado = "";
             String connectionString = ConfigurationManager.ConnectionStrings["RefrigeracaoLopes_App.Properties.Settings.refrigeracaoDB"].ConnectionString;
+
+            NumberFormatInfo nfi = new NumberFormatInfo();
+            nfi.NumberDecimalSeparator = ".";
+
+
             if (DateTime.Compare(DateTime.Parse(dateTimePickerTermino.Text), DateTime.Parse(datePickAreaEntrada.Text)) == -1)
             {
                 resultado = "A data de termino não pode ser anterior a data de entrada!";
@@ -163,32 +171,46 @@ namespace RefrigeracaoLopes_App
                 if (numericUpDownOrcamento.Value.ToString().Length == 0 || numericUpDownPreco.Value.ToString().Length == 0 || textBoxNomeProduto.Text.ToString().Length == 0 || textBoxDescricaoProduto.Text.ToString().Length == 0)
                 {
                     resultado = "Verifique os dados que inseriu, nenhum deles pode ser vazio.";
-                    
+
                 }
                 else
                 {
-                    try { 
+                    try 
+                    {
                         string cmdString = "UPDATE Serviços SET [PRECO] = @PRECO, [ESTADO] = @ESTADO, [INFO] = @INFO, [DATA_TERMINO] = @DATA_TERMINO, [NUMERO_ORÇAMENTO] = @NUMERO_ORÇAMENTO WHERE ID = @ServicoID";
 
                         using (SqlConnection connectionUpdate = new SqlConnection(connectionString))
-                    {
+
 
                         using (SqlCommand commandUpdate = new SqlCommand(cmdString, connectionUpdate))
                         {
-                                Decimal precoValue = numericUpDownPreco.Value;
-                                int estadoValue = listEstadoServico.SelectedItem.ToString() == "Concluido" ? 1 : 2;
-                                String infoValue = textBoxDescricaoProduto.Text;
-                                DateTime dataTerminoValue = dateTimePickerTermino.Value;
-                                int numeroOrcamentoValue = int.Parse(numericUpDownOrcamento.Value.ToString());
+                            Decimal precoValue = numericUpDownPreco.Value;
+                            
+                            String infoValue = textBoxDescricaoProduto.Text;
+                            DateTime dataTerminoValue = dateTimePickerTermino.Value;
+                            int numeroOrcamentoValue = int.Parse(numericUpDownOrcamento.Value.ToString());
 
-                            commandUpdate.Parameters.AddWithValue("@PRECO", precoValue);
+                            Console.WriteLine(listEstadoServico.SelectedItem.ToString() + listEstadoServico.SelectedIndex);
+
+                            
+
+
+                            commandUpdate.Parameters.AddWithValue("@PRECO", precoValue.ToString(nfi));
                             commandUpdate.Parameters.AddWithValue("@ESTADO", estadoValue);
                             commandUpdate.Parameters.AddWithValue("@INFO", infoValue);
                             commandUpdate.Parameters.AddWithValue("@DATA_TERMINO", dataTerminoValue);
                             commandUpdate.Parameters.AddWithValue("@NUMERO_ORÇAMENTO", numeroOrcamentoValue);
-                            commandUpdate.Parameters.AddWithValue("@ServicoID", int.Parse(idServico_Place.ToString()));
+                            commandUpdate.Parameters.AddWithValue("@ServicoID", int.Parse(idServico_Place.Text.ToString()));
 
+                            
+                            string queryString = commandUpdate.CommandText;
+                            foreach (SqlParameter p in commandUpdate.Parameters)
+                            {
+                                queryString = queryString.Replace(p.ParameterName, p.Value.ToString());
+                            }
+                            Console.WriteLine(queryString);
                             commandUpdate.Connection.Open();
+
 
                             int res = commandUpdate.ExecuteNonQuery();
                             commandUpdate.Connection.Close();
@@ -201,16 +223,13 @@ namespace RefrigeracaoLopes_App
                                 resultado = "Dados atualizados corretamente!";
                             }
                         }
-                    }
+                    
                     }
                     catch (Exception ex) {
-                        Console.WriteLine(ex.ToString());
-                    }
+                    Console.WriteLine(ex.ToString());
                 }
-
-            }
-
-
+               }    
+            } 
             MessageBox.Show(resultado); 
 
             //IF PARA VER SE O QUER ATUALZIAR O PAG
@@ -220,6 +239,64 @@ namespace RefrigeracaoLopes_App
                 MessageBox.Show("ABRIRÁ O PAGAMENTO AQUI");
             }
              
+        }
+        
+        private void TrocouDeItem(object sender, EventArgs e)
+        {
+
+            
+            if (listEstadoServico.SelectedIndex != -1)
+            {
+                // Atualize a variável com o valor do item selecionado
+                estadoValue = listEstadoServico.SelectedIndex;
+                Console.WriteLine(estadoValue);
+            }
+        }
+
+        private void listEstadoServico_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            e.DrawBackground();
+
+            // Verifica se o item está selecionado
+            if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
+            {
+                // Define a cor de fundo quando o item está selecionado
+                e.Graphics.FillRectangle(Brushes.LightGreen, e.Bounds);
+            }
+            else
+            {
+                // Define a cor de fundo padrão para os itens não selecionados
+                e.Graphics.FillRectangle(Brushes.Transparent, e.Bounds);
+            }
+
+            // Desenha o texto do item
+            if (e.Index >= 0)
+            {
+                e.Graphics.DrawString(listEstadoServico.Items[e.Index].ToString(), e.Font, Brushes.Black, e.Bounds, StringFormat.GenericDefault);
+            }
+        }
+
+        private void listEstadoPagamento_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            e.DrawBackground();
+
+            // Verifica se o item está selecionado
+            if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
+            {
+                // Define a cor de fundo quando o item está selecionado
+                e.Graphics.FillRectangle(Brushes.LightGreen, e.Bounds);
+            }
+            else
+            {
+                // Define a cor de fundo padrão para os itens não selecionados
+                e.Graphics.FillRectangle(Brushes.Transparent, e.Bounds);
+            }
+
+            // Desenha o texto do item
+            if (e.Index >= 0)
+            {
+                e.Graphics.DrawString(listEstadoServico.Items[e.Index].ToString(), e.Font, Brushes.Black, e.Bounds, StringFormat.GenericDefault);
+            }
         }
     }
 }

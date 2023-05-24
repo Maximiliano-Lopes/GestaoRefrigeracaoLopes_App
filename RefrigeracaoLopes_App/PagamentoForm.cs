@@ -58,5 +58,51 @@ namespace RefrigeracaoLopes_App
             this.Close();
 
         }
+
+        private void listEstadoPagamento_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            e.DrawBackground();
+
+            // Verifica se o item está selecionado
+            if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
+            {
+                // Define a cor de fundo quando o item está selecionado
+                e.Graphics.FillRectangle(Brushes.LightGreen, e.Bounds);
+            }
+            else
+            {
+                // Define a cor de fundo padrão para os itens não selecionados
+                e.Graphics.FillRectangle(Brushes.Transparent, e.Bounds);
+            }
+
+            // Desenha o texto do item
+            if (e.Index >= 0)
+            {
+                e.Graphics.DrawString(listEstadoPagamento.Items[e.Index].ToString(), e.Font, Brushes.Black, e.Bounds, StringFormat.GenericDefault);
+            }
+        }
+
+        private void listMeioPagamento_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            e.DrawBackground();
+
+            // Verifica se o item está selecionado
+            if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
+            {
+                // Define a cor de fundo quando o item está selecionado
+                e.Graphics.FillRectangle(Brushes.LightGreen, e.Bounds);
+            }
+            else
+            {
+                // Define a cor de fundo padrão para os itens não selecionados
+                e.Graphics.FillRectangle(Brushes.Transparent, e.Bounds);
+            }
+
+            // Desenha o texto do item
+            if (e.Index >= 0)
+            {
+                e.Graphics.DrawString(listMeioPagamento.Items[e.Index].ToString(), e.Font, Brushes.Black, e.Bounds, StringFormat.GenericDefault);
+            }
+        }
     }
 }
