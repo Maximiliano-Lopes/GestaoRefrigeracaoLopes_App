@@ -74,7 +74,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label4.Location = new System.Drawing.Point(28, 14);
+            this.label4.Location = new System.Drawing.Point(36, 14);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(83, 20);
@@ -87,7 +87,7 @@
             this.idCliente_Place.AutoSize = true;
             this.idCliente_Place.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.idCliente_Place.ForeColor = System.Drawing.Color.DarkGreen;
-            this.idCliente_Place.Location = new System.Drawing.Point(118, 14);
+            this.idCliente_Place.Location = new System.Drawing.Point(126, 14);
             this.idCliente_Place.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.idCliente_Place.Name = "idCliente_Place";
             this.idCliente_Place.Size = new System.Drawing.Size(68, 20);
@@ -100,7 +100,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label2.Location = new System.Drawing.Point(338, 14);
+            this.label2.Location = new System.Drawing.Point(346, 14);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(86, 20);
@@ -113,7 +113,7 @@
             this.idServico_Place.AutoSize = true;
             this.idServico_Place.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.idServico_Place.ForeColor = System.Drawing.Color.DarkGreen;
-            this.idServico_Place.Location = new System.Drawing.Point(428, 14);
+            this.idServico_Place.Location = new System.Drawing.Point(436, 14);
             this.idServico_Place.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.idServico_Place.Name = "idServico_Place";
             this.idServico_Place.Size = new System.Drawing.Size(68, 20);
@@ -226,7 +226,7 @@
             this.textBoxNomeProduto.Location = new System.Drawing.Point(391, 371);
             this.textBoxNomeProduto.Name = "textBoxNomeProduto";
             this.textBoxNomeProduto.ReadOnly = true;
-            this.textBoxNomeProduto.Size = new System.Drawing.Size(362, 26);
+            this.textBoxNomeProduto.Size = new System.Drawing.Size(378, 26);
             this.textBoxNomeProduto.TabIndex = 113;
             // 
             // label10
@@ -255,7 +255,7 @@
             this.textBoxDescricaoProduto.Multiline = true;
             this.textBoxDescricaoProduto.Name = "textBoxDescricaoProduto";
             this.textBoxDescricaoProduto.ReadOnly = true;
-            this.textBoxDescricaoProduto.Size = new System.Drawing.Size(362, 257);
+            this.textBoxDescricaoProduto.Size = new System.Drawing.Size(378, 257);
             this.textBoxDescricaoProduto.TabIndex = 111;
             // 
             // dateTimePickerTermino
@@ -311,7 +311,7 @@
             this.numericUpDownPreco.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.numericUpDownPreco.DecimalPlaces = 2;
             this.numericUpDownPreco.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.numericUpDownPreco.Location = new System.Drawing.Point(239, 555);
+            this.numericUpDownPreco.Location = new System.Drawing.Point(255, 555);
             this.numericUpDownPreco.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -329,7 +329,7 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.label1.Location = new System.Drawing.Point(267, 524);
+            this.label1.Location = new System.Drawing.Point(283, 524);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(77, 24);
             this.label1.TabIndex = 104;
@@ -345,7 +345,7 @@
             this.inputCPF.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.inputCPF.Name = "inputCPF";
             this.inputCPF.ReadOnly = true;
-            this.inputCPF.Size = new System.Drawing.Size(635, 29);
+            this.inputCPF.Size = new System.Drawing.Size(651, 29);
             this.inputCPF.TabIndex = 102;
             // 
             // label7
@@ -368,7 +368,7 @@
             this.inputEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.inputEmail.Name = "inputEmail";
             this.inputEmail.ReadOnly = true;
-            this.inputEmail.Size = new System.Drawing.Size(635, 29);
+            this.inputEmail.Size = new System.Drawing.Size(651, 29);
             this.inputEmail.TabIndex = 94;
             // 
             // inputNome
@@ -380,7 +380,7 @@
             this.inputNome.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.inputNome.Name = "inputNome";
             this.inputNome.ReadOnly = true;
-            this.inputNome.Size = new System.Drawing.Size(635, 29);
+            this.inputNome.Size = new System.Drawing.Size(651, 29);
             this.inputNome.TabIndex = 92;
             // 
             // label15
@@ -415,7 +415,7 @@
             this.inputEnd.Multiline = true;
             this.inputEnd.Name = "inputEnd";
             this.inputEnd.ReadOnly = true;
-            this.inputEnd.Size = new System.Drawing.Size(635, 35);
+            this.inputEnd.Size = new System.Drawing.Size(651, 35);
             this.inputEnd.TabIndex = 100;
             // 
             // label17
@@ -438,7 +438,7 @@
             this.inputTelefone.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.inputTelefone.Name = "inputTelefone";
             this.inputTelefone.ReadOnly = true;
-            this.inputTelefone.Size = new System.Drawing.Size(635, 29);
+            this.inputTelefone.Size = new System.Drawing.Size(651, 29);
             this.inputTelefone.TabIndex = 96;
             // 
             // label18
@@ -498,7 +498,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label3.Location = new System.Drawing.Point(636, 14);
+            this.label3.Location = new System.Drawing.Point(644, 14);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 20);
@@ -511,7 +511,7 @@
             this.idPagamento_Place.AutoSize = true;
             this.idPagamento_Place.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.idPagamento_Place.ForeColor = System.Drawing.Color.DarkGreen;
-            this.idPagamento_Place.Location = new System.Drawing.Point(718, 14);
+            this.idPagamento_Place.Location = new System.Drawing.Point(726, 14);
             this.idPagamento_Place.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.idPagamento_Place.Name = "idPagamento_Place";
             this.idPagamento_Place.Size = new System.Drawing.Size(68, 20);
@@ -535,7 +535,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(800, 775);
+            this.ClientSize = new System.Drawing.Size(816, 814);
             this.Controls.Add(this.btn_editarInfoPaga);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.idPagamento_Place);
