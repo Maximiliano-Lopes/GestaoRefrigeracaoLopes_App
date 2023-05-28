@@ -47,6 +47,7 @@
             this.datePickAreaEntrada = new System.Windows.Forms.DateTimePicker();
             this.inputNomeProduto = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.btn_confirmarAlteracoesPag = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPreco)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,7 +55,7 @@
             // 
             this.btn_confirmarInfo.BackColor = System.Drawing.Color.LawnGreen;
             this.btn_confirmarInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.btn_confirmarInfo.Location = new System.Drawing.Point(331, 580);
+            this.btn_confirmarInfo.Location = new System.Drawing.Point(437, 580);
             this.btn_confirmarInfo.Margin = new System.Windows.Forms.Padding(2);
             this.btn_confirmarInfo.Name = "btn_confirmarInfo";
             this.btn_confirmarInfo.Size = new System.Drawing.Size(136, 47);
@@ -299,11 +300,26 @@
             this.label6.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
+            // btn_confirmarAlteracoesPag
+            // 
+            this.btn_confirmarAlteracoesPag.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btn_confirmarAlteracoesPag.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.btn_confirmarAlteracoesPag.Location = new System.Drawing.Point(120, 580);
+            this.btn_confirmarAlteracoesPag.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_confirmarAlteracoesPag.Name = "btn_confirmarAlteracoesPag";
+            this.btn_confirmarAlteracoesPag.Size = new System.Drawing.Size(262, 47);
+            this.btn_confirmarAlteracoesPag.TabIndex = 76;
+            this.btn_confirmarAlteracoesPag.Text = "Confirmar Alterações";
+            this.btn_confirmarAlteracoesPag.UseVisualStyleBackColor = false;
+            this.btn_confirmarAlteracoesPag.Visible = false;
+            this.btn_confirmarAlteracoesPag.Click += new System.EventHandler(this.button1_Click);
+            // 
             // PagamentoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 638);
+            this.Controls.Add(this.btn_confirmarAlteracoesPag);
             this.Controls.Add(this.inputNomeProduto);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label8);
@@ -333,25 +349,25 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btn_confirmarInfo;
         private System.Windows.Forms.TextBox inputNome;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox inputCPF;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label id_place;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.NumericUpDown numericUpDownPreco;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox inputDescricaoProduto;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ListBox listMeioPagamento;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DateTimePicker datePickAreaEntrada;
         private System.Windows.Forms.TextBox inputNomeProduto;
         private System.Windows.Forms.Label label6;
         public System.Windows.Forms.ListBox listEstadoPagamento;
+        public System.Windows.Forms.Button btn_confirmarInfo;
+        public System.Windows.Forms.Button btn_confirmarAlteracoesPag;
+        public System.Windows.Forms.Label id_place;
+        public System.Windows.Forms.ListBox listMeioPagamento;
     }
 }

@@ -192,9 +192,6 @@ namespace RefrigeracaoLopes_App
 
                             Console.WriteLine(listEstadoServico.SelectedItem.ToString() + listEstadoServico.SelectedIndex);
 
-                            
-
-
                             commandUpdate.Parameters.AddWithValue("@PRECO", precoValue.ToString(nfi));
                             commandUpdate.Parameters.AddWithValue("@ESTADO", estadoValue);
                             commandUpdate.Parameters.AddWithValue("@INFO", infoValue);
@@ -223,7 +220,9 @@ namespace RefrigeracaoLopes_App
                                 resultado = "Dados atualizados corretamente!";
                             }
                         }
-                    
+                        
+
+
                     }
                     catch (Exception ex) {
                     Console.WriteLine(ex.ToString());
@@ -248,7 +247,7 @@ namespace RefrigeracaoLopes_App
             if (listEstadoServico.SelectedIndex != -1)
             {
                 // Atualize a variável com o valor do item selecionado
-                estadoValue = listEstadoServico.SelectedIndex;
+                estadoValue = listEstadoServico.SelectedIndex + 1;
                 Console.WriteLine(estadoValue);
             }
         }
@@ -297,6 +296,18 @@ namespace RefrigeracaoLopes_App
             {
                 e.Graphics.DrawString(listEstadoServico.Items[e.Index].ToString(), e.Font, Brushes.Black, e.Bounds, StringFormat.GenericDefault);
             }
+        }
+
+        private void btn_editarInfoPaga_Click(object sender, EventArgs e)
+        {
+            PagamentoForm pagamentoForm = new PagamentoForm();
+
+            pagamentoForm.btn_confirmarInfo.Visible = false;
+            pagamentoForm.id_place.Text = idServico_Place.Text.ToString();
+            pagamentoForm.idPagamento = int.Parse(idPagamento_Place.Text.ToString());
+            pagamentoForm.btn_confirmarAlteracoesPag.Visible = true;
+
+            pagamentoForm.Show();
         }
     }
 }

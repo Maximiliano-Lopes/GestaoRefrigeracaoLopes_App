@@ -154,7 +154,7 @@ namespace RefrigeracaoLopes_App
                                 
                             foreach (SqlParameter p in command.Parameters)
                                 {
-                                queryString = queryString.Replace(p.ParameterName, p.Value.ToString());
+                                    queryString = queryString.Replace(p.ParameterName, p.Value.ToString());
                                 }
                             Console.WriteLine(queryString);
                             command.Connection.Open();
@@ -170,7 +170,7 @@ namespace RefrigeracaoLopes_App
                         try {
 
                             PagamentoForm pagamentoForm = new PagamentoForm();
-                            pagamentoForm.listEstadoPagamento.SelectedIndex = estadoDoPagamento == 1 ? 1 : 2;
+                            pagamentoForm.listEstadoPagamento.SelectedIndex = estadoDoPagamento == 1 ? 0 : 1;
                             pagamentoForm.listEstadoPagamento.Enabled = false;
                             pagamentoForm.ShowDialog();
                         
@@ -187,10 +187,13 @@ namespace RefrigeracaoLopes_App
                                 {
                                     String descricaoPagamento = PagamentoForm.descricaoPagamento.Length == 0 ?   "Sem descrição." : PagamentoForm.descricaoPagamento;
 
+                                    String meioDePagamento = pagamentoForm.listMeioPagamento.SelectedItem.ToString();
+                                    int indexMeioPagamento = pagamentoForm.VerificarMeio(meioDePagamento);
+
                                     commandPag.Parameters.AddWithValue("@PRODUTO", nomeProduto);
                                     commandPag.Parameters.AddWithValue("@PRECO", preco);
                                     commandPag.Parameters.AddWithValue("@MODA_PAGAMENTO", 1);
-                                    commandPag.Parameters.AddWithValue("@MEIO_PAGAMENTO", PagamentoForm.meio_pagamento);
+                                    commandPag.Parameters.AddWithValue("@MEIO_PAGAMENTO", indexMeioPagamento);
                                     commandPag.Parameters.AddWithValue("@CPF_CNPJ", Principal.cpf);
                                     commandPag.Parameters.AddWithValue("@ESTADO", estadoDoPagamento);
                                     commandPag.Parameters.AddWithValue("@DATA", PagamentoForm.dataPagamento);

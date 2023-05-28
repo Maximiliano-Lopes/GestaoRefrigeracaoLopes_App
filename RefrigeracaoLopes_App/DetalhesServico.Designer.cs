@@ -311,7 +311,7 @@
             this.numericUpDownPreco.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.numericUpDownPreco.DecimalPlaces = 2;
             this.numericUpDownPreco.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.numericUpDownPreco.Location = new System.Drawing.Point(255, 555);
+            this.numericUpDownPreco.Location = new System.Drawing.Point(242, 555);
             this.numericUpDownPreco.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -329,7 +329,7 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.label1.Location = new System.Drawing.Point(283, 524);
+            this.label1.Location = new System.Drawing.Point(270, 524);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(77, 24);
             this.label1.TabIndex = 104;
@@ -528,6 +528,7 @@
             this.btn_editarInfoPaga.TabIndex = 128;
             this.btn_editarInfoPaga.Text = "Editar inf. Pagamento";
             this.btn_editarInfoPaga.UseVisualStyleBackColor = true;
+            this.btn_editarInfoPaga.Click += new System.EventHandler(this.btn_editarInfoPaga_Click);
             // 
             // DetalhesServico
             // 
@@ -535,7 +536,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(816, 814);
+            this.ClientSize = new System.Drawing.Size(800, 814);
             this.Controls.Add(this.btn_editarInfoPaga);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.idPagamento_Place);
