@@ -24,8 +24,9 @@ namespace RefrigeracaoLopes_App
         public static int estado_pagamento;
         public static DateTime dataPagamento;
         public static Decimal precoFinal;
+        public int idServico = 0;
 
-
+        public String nomeCliente = "";
         public PagamentoForm()
         {
             InitializeComponent();
@@ -34,16 +35,7 @@ namespace RefrigeracaoLopes_App
         }
         private void PagamentoForm_Load(object sender, EventArgs e)
         {
-            
-            String nomeCliente = "";
 
-
-            datePickAreaEntrada.Value = DateTime.Now;
-
-            id_place.Text = Principal.id.ToString();
-            inputCPF.Text = Principal.cpf;
-            inputNome.Text = Principal.nome;
-            inputNomeProduto.Text = NovoServico.nomeProduto;
 
             numericUpDownPreco.Value = Decimal.Parse(NovoServico.precoTotal.ToString());
 
@@ -54,8 +46,8 @@ namespace RefrigeracaoLopes_App
 
                 try
                 {
-                    string queryString = "SELECT * FROM Pagamento";
-                    queryString += "WHERE ID = "+ idPagamento + " AND ID_SERVICO = " + int.Parse(id_place.Text.ToString());
+                    string queryString = "SELECT * FROM Pagamento ";
+                    queryString += " WHERE ID = "+ idPagamento + " AND ID_SERVICO = " + idServico;
 
 
 
@@ -71,13 +63,24 @@ namespace RefrigeracaoLopes_App
                             {
                                 try
                                 {
+
+                                    
                                     //[ID],[PRODUTO],[PRECO],[MODA_PAGAMENTO],[MEIO_PAGAMENTO],[CPF_CNPJ],[ESTADO],[DATA],[ID_SERVICO],[DESCRICAO]
+                                    datePickAreaPagamento.Value = DateTime.Now;
+
+                                    id_PlaceServico.Text = idServico.ToString();
+                                    id_place.Text = idPagamento.ToString();
+
 
                                     id_place.Text = reader.GetInt32(0).ToString();
                                     inputNome.Text = nomeCliente;
                                     inputNomeProduto.Text = reader.GetString(1);
                                     numericUpDownPreco.Value = reader.GetDecimal(2);
+                                    listMeioPagamento.SelectedIndex = VerificarMeio(reader.GetInt32(4));
                                     inputCPF.Text = reader.GetString(5);
+                                    listEstadoPagamento.SelectedIndex = reader.GetInt32(6)-1;
+                                    datePickAreaPagamento.Value = reader.GetDateTime(7);
+
 
                                     Console.WriteLine(command.CommandText);
                                 }
@@ -133,6 +136,41 @@ namespace RefrigeracaoLopes_App
 
             return index;
         }
+        public int VerificarMeio(int meio)
+        {
+            int index = 0;
+
+            switch (meio)
+            {
+                case 1:
+                    index = 0;//dinheiro
+                    break;
+                case 3:
+                    index = 1;//Cartão_de_débito
+                    break;
+                case 4:
+                    index = 2;//Boleto_bancário
+                    break;
+                case 5:
+                    index = 3;//Carteira_digital
+                    break;
+                case 6:
+                    index = 4;//Contactless
+                    break;
+                case 7:
+                    index = 5;//PIX
+                    break;
+                case 8:
+                    index = 6;//Cartão_de_crédit
+                    break;
+                default:
+                    index = 1;
+                    break;
+            }
+
+            return index;
+        }
+
         private void label6_Click(object sender, EventArgs e)
         {
 
@@ -142,8 +180,8 @@ namespace RefrigeracaoLopes_App
         {
             
             descricaoPagamento = inputDescricaoProduto.Text.ToString();
-            meio_pagamento = int.Parse(listMeioPagamento.SelectedIndex.ToString())+1;
-            dataPagamento = DateTime.Parse(datePickAreaEntrada.Text);
+            meio_pagamento = VerificarMeio(listMeioPagamento.SelectedIndex);
+            dataPagamento = DateTime.Parse(datePickAreaPagamento.Text);
             precoFinal = numericUpDownPreco.Value;
             
 

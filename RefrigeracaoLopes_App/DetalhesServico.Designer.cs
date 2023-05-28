@@ -308,7 +308,7 @@
             // numericUpDownPreco
             // 
             this.numericUpDownPreco.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.numericUpDownPreco.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.numericUpDownPreco.BackColor = System.Drawing.SystemColors.Window;
             this.numericUpDownPreco.DecimalPlaces = 2;
             this.numericUpDownPreco.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.numericUpDownPreco.Location = new System.Drawing.Point(242, 555);

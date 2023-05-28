@@ -242,12 +242,10 @@ namespace RefrigeracaoLopes_App
         
         private void TrocouDeItem(object sender, EventArgs e)
         {
-
-            
             if (listEstadoServico.SelectedIndex != -1)
             {
                 // Atualize a variável com o valor do item selecionado
-                estadoValue = listEstadoServico.SelectedIndex + 1;
+                estadoValue = listEstadoServico.SelectedIndex == 0 ? 2 : 1;
                 Console.WriteLine(estadoValue);
             }
         }
@@ -303,10 +301,12 @@ namespace RefrigeracaoLopes_App
             PagamentoForm pagamentoForm = new PagamentoForm();
 
             pagamentoForm.btn_confirmarInfo.Visible = false;
-            pagamentoForm.id_place.Text = idServico_Place.Text.ToString();
+            pagamentoForm.id_place.Visible = true;
+            pagamentoForm.label9.Visible = true;
+            pagamentoForm.idServico = int.Parse(idServico_Place.Text.ToString());
             pagamentoForm.idPagamento = int.Parse(idPagamento_Place.Text.ToString());
             pagamentoForm.btn_confirmarAlteracoesPag.Visible = true;
-
+            pagamentoForm.nomeCliente = inputNome.Text;
             pagamentoForm.Show();
         }
     }

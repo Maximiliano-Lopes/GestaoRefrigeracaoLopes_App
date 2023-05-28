@@ -44,10 +44,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.listEstadoPagamento = new System.Windows.Forms.ListBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.datePickAreaEntrada = new System.Windows.Forms.DateTimePicker();
+            this.datePickAreaPagamento = new System.Windows.Forms.DateTimePicker();
             this.inputNomeProduto = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btn_confirmarAlteracoesPag = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.id_PlaceServico = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPreco)).BeginInit();
             this.SuspendLayout();
             // 
@@ -118,7 +120,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.label4.Location = new System.Drawing.Point(12, 9);
+            this.label4.Location = new System.Drawing.Point(500, 9);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(148, 31);
             this.label4.TabIndex = 61;
@@ -130,11 +132,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.id_place.AutoSize = true;
             this.id_place.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.id_place.Location = new System.Drawing.Point(171, 9);
+            this.id_place.Location = new System.Drawing.Point(220, 9);
             this.id_place.Name = "id_place";
             this.id_place.Size = new System.Drawing.Size(115, 31);
             this.id_place.TabIndex = 62;
             this.id_place.Text = "id_place";
+            this.id_place.Visible = false;
             // 
             // label13
             // 
@@ -151,7 +154,7 @@
             // 
             // numericUpDownPreco
             // 
-            this.numericUpDownPreco.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.numericUpDownPreco.BackColor = System.Drawing.SystemColors.Window;
             this.numericUpDownPreco.DecimalPlaces = 2;
             this.numericUpDownPreco.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.numericUpDownPreco.Location = new System.Drawing.Point(138, 514);
@@ -162,7 +165,7 @@
             0});
             this.numericUpDownPreco.Name = "numericUpDownPreco";
             this.numericUpDownPreco.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.numericUpDownPreco.Size = new System.Drawing.Size(105, 35);
+            this.numericUpDownPreco.Size = new System.Drawing.Size(145, 35);
             this.numericUpDownPreco.TabIndex = 66;
             this.numericUpDownPreco.ThousandsSeparator = true;
             // 
@@ -261,18 +264,19 @@
             this.label8.Text = "Data do pagamento:";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // datePickAreaEntrada
+            // datePickAreaPagamento
             // 
-            this.datePickAreaEntrada.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.datePickAreaEntrada.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.datePickAreaEntrada.Checked = false;
-            this.datePickAreaEntrada.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.datePickAreaEntrada.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.datePickAreaEntrada.Location = new System.Drawing.Point(19, 427);
-            this.datePickAreaEntrada.Name = "datePickAreaEntrada";
-            this.datePickAreaEntrada.Size = new System.Drawing.Size(220, 35);
-            this.datePickAreaEntrada.TabIndex = 72;
-            this.datePickAreaEntrada.Value = new System.DateTime(2023, 5, 12, 0, 0, 0, 0);
+            this.datePickAreaPagamento.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.datePickAreaPagamento.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.datePickAreaPagamento.Checked = false;
+            this.datePickAreaPagamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.datePickAreaPagamento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.datePickAreaPagamento.Location = new System.Drawing.Point(19, 427);
+            this.datePickAreaPagamento.Name = "datePickAreaPagamento";
+            this.datePickAreaPagamento.Size = new System.Drawing.Size(220, 35);
+            this.datePickAreaPagamento.TabIndex = 72;
+            this.datePickAreaPagamento.Value = new System.DateTime(2023, 5, 12, 0, 0, 0, 0);
             // 
             // inputNomeProduto
             // 
@@ -314,16 +318,41 @@
             this.btn_confirmarAlteracoesPag.Visible = false;
             this.btn_confirmarAlteracoesPag.Click += new System.EventHandler(this.button1_Click);
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.label9.Location = new System.Drawing.Point(3, 9);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(195, 31);
+            this.label9.TabIndex = 77;
+            this.label9.Text = "Pagemento ID:";
+            this.label9.Visible = false;
+            // 
+            // id_PlaceServico
+            // 
+            this.id_PlaceServico.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.id_PlaceServico.AutoSize = true;
+            this.id_PlaceServico.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.id_PlaceServico.Location = new System.Drawing.Point(667, 9);
+            this.id_PlaceServico.Name = "id_PlaceServico";
+            this.id_PlaceServico.Size = new System.Drawing.Size(101, 31);
+            this.id_PlaceServico.TabIndex = 78;
+            this.id_PlaceServico.Text = "label10";
+            // 
             // PagamentoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 638);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.id_PlaceServico);
             this.Controls.Add(this.btn_confirmarAlteracoesPag);
             this.Controls.Add(this.inputNomeProduto);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.datePickAreaEntrada);
+            this.Controls.Add(this.datePickAreaPagamento);
             this.Controls.Add(this.listEstadoPagamento);
             this.Controls.Add(this.listMeioPagamento);
             this.Controls.Add(this.label3);
@@ -361,7 +390,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DateTimePicker datePickAreaEntrada;
+        private System.Windows.Forms.DateTimePicker datePickAreaPagamento;
         private System.Windows.Forms.TextBox inputNomeProduto;
         private System.Windows.Forms.Label label6;
         public System.Windows.Forms.ListBox listEstadoPagamento;
@@ -369,5 +398,7 @@
         public System.Windows.Forms.Button btn_confirmarAlteracoesPag;
         public System.Windows.Forms.Label id_place;
         public System.Windows.Forms.ListBox listMeioPagamento;
+        public System.Windows.Forms.Label id_PlaceServico;
+        public System.Windows.Forms.Label label9;
     }
 }

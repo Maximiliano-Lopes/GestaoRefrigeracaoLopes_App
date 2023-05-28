@@ -104,8 +104,8 @@ namespace RefrigeracaoLopes_App
            
             //Atribuições dos valores
 
-            estadoDoServico = listEstadoServico.SelectedIndex + 2;
-            estadoDoPagamento = listEstadoPagamento.SelectedIndex + 2;
+            estadoDoServico = listEstadoServico.SelectedIndex == 0 ? 2 : 1; ;
+            estadoDoPagamento = listEstadoPagamento.SelectedIndex == 0 ? 2 : 1; ;
             
 
             dateEntrada = DateTime.Parse(datePickAreaEntrada.Text.ToString());
