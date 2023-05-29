@@ -243,8 +243,8 @@
             this.listEstadoPagamento.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.listEstadoPagamento.FormattingEnabled = true;
             this.listEstadoPagamento.Items.AddRange(new object[] {
-            "Concluido",
-            "Pendente"});
+            "Pendente",
+            "Concluido"});
             this.listEstadoPagamento.Location = new System.Drawing.Point(19, 194);
             this.listEstadoPagamento.Name = "listEstadoPagamento";
             this.listEstadoPagamento.Size = new System.Drawing.Size(224, 30);

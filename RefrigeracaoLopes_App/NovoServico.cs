@@ -125,7 +125,6 @@ namespace RefrigeracaoLopes_App
             int idServico;
             int idPagamento;
 
-            Console.WriteLine(estadoDoPagamento);
             if (estadoDoPagamento >= 0)
             {
                 String connectionString = ConfigurationManager.ConnectionStrings["RefrigeracaoLopes_App.Properties.Settings.refrigeracaoDB"].ConnectionString;

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PdfSharp.Drawing;
+using PdfSharp.Pdf.Content.Objects;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -25,6 +27,8 @@ namespace RefrigeracaoLopes_App
         public static DateTime dataPagamento;
         public static Decimal precoFinal;
         public int idServico = 0;
+        public DateTime dataTerminoServico;
+        public DateTime dataEntradaServico;
 
         public String nomeCliente = "";
         public PagamentoForm()
@@ -71,18 +75,17 @@ namespace RefrigeracaoLopes_App
                                     id_PlaceServico.Text = idServico.ToString();
                                     id_place.Text = idPagamento.ToString();
 
-
+                                    inputDescricaoProduto.Text = reader.GetString(9);
                                     id_place.Text = reader.GetInt32(0).ToString();
                                     inputNome.Text = nomeCliente;
                                     inputNomeProduto.Text = reader.GetString(1);
                                     numericUpDownPreco.Value = reader.GetDecimal(2);
                                     listMeioPagamento.SelectedIndex = VerificarMeio(reader.GetInt32(4));
                                     inputCPF.Text = reader.GetString(5);
-                                    listEstadoPagamento.SelectedIndex = reader.GetInt32(6)-1;
+                                    listEstadoPagamento.SelectedIndex = reader.GetInt32(6) == 1 ? 1 : 0; ;
                                     datePickAreaPagamento.Value = reader.GetDateTime(7);
 
 
-                                    Console.WriteLine(command.CommandText);
                                 }
                                 catch (Exception ex)
                                 {
@@ -238,9 +241,79 @@ namespace RefrigeracaoLopes_App
         private void button1_Click(object sender, EventArgs e)
         {
             //PEGAR AS INFORMAÇÕES, VERIFICAR E DAR UPDATE
+            String connectionString = ConfigurationManager.ConnectionStrings["RefrigeracaoLopes_App.Properties.Settings.refrigeracaoDB"].ConnectionString;
+            String resultado;
+
+            if (datePickAreaPagamento.Value.ToString().Length == 0 || numericUpDownPreco.Value.ToString().Length == 0 || inputNomeProduto.Text.ToString().Length == 0 || inputDescricaoProduto.Text.ToString().Length == 0)
+            {
+                resultado = "Verifique os dados que inseriu, nenhum deles pode ser vazio.";
+                MessageBox.Show(resultado);
+            }
+            else if (DateTime.Compare(datePickAreaPagamento.Value, dataEntradaServico) == -1)
+            {
+                resultado = "A data do pagamento não pode ser anterior a data de entrada do serviço!";
+                MessageBox.Show(resultado);
+            }
+            else
+            {
+                try
+                {
+                    dataPagamento = datePickAreaPagamento.Value;
+
+                    string cmdString = "UPDATE [dbo].[Pagamento] SET [PRODUTO] = @PRODUTO, [PRECO] = @PRECO, [MODA_PAGAMENTO] = @MODA_PAGAMENTO, [MEIO_PAGAMENTO] = @MEIO_PAGAMENTO, [ESTADO] = @ESTADO, [DATA] = @DATA, [DESCRICAO] = @DESCRICAO ";
+                    cmdString += " WHERE ID_SERVICO = @ID_SERVICO AND ID = @ID_PAGAMENTO";
+
+                    using (SqlConnection connectionUpdate = new SqlConnection(connectionString))
+
+
+                    using (SqlCommand commandUpdate = new SqlCommand(cmdString, connectionUpdate))
+                    {
+                        int estadoValue = listEstadoPagamento.SelectedIndex == 0 ? 2 : 1;
 
 
 
+                        commandUpdate.Parameters.AddWithValue("@PRODUTO", inputNomeProduto.Text.ToString());
+                        commandUpdate.Parameters.AddWithValue("@PRECO", numericUpDownPreco.Value);
+                        commandUpdate.Parameters.AddWithValue("@MODA_PAGAMENTO", 1);
+                        commandUpdate.Parameters.AddWithValue("@MEIO_PAGAMENTO", VerificarMeio(listMeioPagamento.SelectedItem.ToString()));
+                        commandUpdate.Parameters.AddWithValue("@ESTADO", estadoValue);
+                        commandUpdate.Parameters.AddWithValue("@DATA", dataPagamento);
+                        commandUpdate.Parameters.AddWithValue("@ID_SERVICO", idServico);
+                        commandUpdate.Parameters.AddWithValue("@ID_PAGAMENTO", idPagamento);
+                        commandUpdate.Parameters.AddWithValue("@DESCRICAO", inputDescricaoProduto.Text.ToString());
+
+
+                        string queryString = commandUpdate.CommandText;
+                        foreach (SqlParameter p in commandUpdate.Parameters)
+                        {
+                            queryString = queryString.Replace(p.ParameterName, p.Value.ToString());
+                        }
+                        Console.WriteLine(queryString);
+                        commandUpdate.Connection.Open();
+
+
+                        int res = commandUpdate.ExecuteNonQuery();
+                        commandUpdate.Connection.Close();
+
+                        if (res < 0)
+                        {
+                            resultado = "Houve um erro ao atualizar os dados, tente novamente!";
+                        }
+                        else
+                        {
+                            resultado = "Dados atualizados corretamente!";
+                        }
+                    }
+                    MessageBox.Show(resultado);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
+            }
+
+            this.Close();
         }
     }
 }
+

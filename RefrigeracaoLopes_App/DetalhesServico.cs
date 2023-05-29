@@ -1,4 +1,5 @@
 ﻿using Google.Protobuf.WellKnownTypes;
+using PdfSharp.Pdf;
 using PdfSharp.Pdf.Content.Objects;
 using System;
 using System.Collections.Generic;
@@ -235,7 +236,21 @@ namespace RefrigeracaoLopes_App
             if (resposta)
             {
                 //abrir pagamento para atualizar os dados
-                MessageBox.Show("ABRIRÁ O PAGAMENTO AQUI");
+                PagamentoForm pagamentoForm = new PagamentoForm();
+
+                pagamentoForm.btn_confirmarInfo.Visible = false;
+                pagamentoForm.id_place.Visible = true;
+                pagamentoForm.label9.Visible = true;
+                pagamentoForm.idServico = int.Parse(idServico_Place.Text.ToString());
+                pagamentoForm.idPagamento = int.Parse(idPagamento_Place.Text.ToString());
+                pagamentoForm.btn_confirmarAlteracoesPag.Visible = true;
+                pagamentoForm.nomeCliente = inputNome.Text;
+
+                pagamentoForm.dataEntradaServico = datePickAreaEntrada.Value;
+                pagamentoForm.dataTerminoServico = dateTimePickerTermino.Value;
+
+                pagamentoForm.Show();
+                this.Close();
             }
              
         }
@@ -246,7 +261,7 @@ namespace RefrigeracaoLopes_App
             {
                 // Atualize a variável com o valor do item selecionado
                 estadoValue = listEstadoServico.SelectedIndex == 0 ? 2 : 1;
-                Console.WriteLine(estadoValue);
+                
             }
         }
 
@@ -307,7 +322,12 @@ namespace RefrigeracaoLopes_App
             pagamentoForm.idPagamento = int.Parse(idPagamento_Place.Text.ToString());
             pagamentoForm.btn_confirmarAlteracoesPag.Visible = true;
             pagamentoForm.nomeCliente = inputNome.Text;
+
+            pagamentoForm.dataEntradaServico = datePickAreaEntrada.Value;
+            pagamentoForm.dataTerminoServico = dateTimePickerTermino.Value;
+
             pagamentoForm.Show();
+            this.Close();
         }
     }
 }
