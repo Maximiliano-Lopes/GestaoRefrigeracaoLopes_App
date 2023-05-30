@@ -228,7 +228,7 @@ namespace RefrigeracaoLopes_App
                     catch (Exception ex) {
                     Console.WriteLine(ex.ToString());
                 }
-               }    
+                }    
             } 
             MessageBox.Show(resultado); 
 
@@ -252,7 +252,7 @@ namespace RefrigeracaoLopes_App
                 pagamentoForm.Show();
                 this.Close();
             }
-             
+            this.Close();
         }
         
         private void TrocouDeItem(object sender, EventArgs e)
