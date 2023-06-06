@@ -70,18 +70,12 @@ namespace RefrigeracaoLopes_App
                                     //0       1          2           3          4         5     6        **7           **8
                                     //id , CPF_CNPJ, DATA_ENTRADA, PRECO, PAGAMENTO_ID, ESTADO, INFO, DATA_TERMINO, NUEMERO_ORÇAMENTO
 
-
                                     String row = reader.GetInt32(0) + " - " + reader.GetString(1) + " - " + reader.GetDateTime(2) + " - " + reader.GetDecimal(3) + " - " + reader.GetInt32(4) + " - " + reader.GetInt32(5) + " - " + reader.GetString(6);
 
                                     listServicos.Items.Add(row);
-
-
-
-
                                 }
                                 catch (Exception ex)
                                 {
-                                    
                                     Console.WriteLine(ex.ToString());
                                 }
                             }
@@ -113,16 +107,11 @@ namespace RefrigeracaoLopes_App
                 DetalhesServico detalhesServico = new DetalhesServico();
 
                 detalhesServico.Show();
+                this.Close();
             }
-
-
         }
-
         private void btn_editarInfo_Click(object sender, EventArgs e)
         {
-            
-
-
             inputNome.ReadOnly = false;
             inputEmail.ReadOnly = false;
             inputTelefone.ReadOnly = false;
@@ -130,11 +119,6 @@ namespace RefrigeracaoLopes_App
             datePickAreaNasc.Enabled = true;
             btn_confirmarAlt.Visible = true;
             btn_cancelarAlt.Visible = true;
-
-            
-
-            
-
         }
 
         private void btn_confirmarAlt_Click(object sender, EventArgs e)
@@ -203,6 +187,95 @@ namespace RefrigeracaoLopes_App
         private void btn_cancelarAlt_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnExcluirCliente_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Quer mesmo apagar todos os registros deste cliente?",
+                      "Informação", MessageBoxButtons.YesNo);
+            switch (dr)
+            {
+                case DialogResult.Yes:
+
+                    //Excluir os dados do cliente 
+                    string cpf_cliente = inputCPF.Text.ToString();
+                    int id_cliente = int.Parse(id_Place.Text.ToString());
+
+                    String connectionString = ConfigurationManager.ConnectionStrings["RefrigeracaoLopes_App.Properties.Settings.refrigeracaoDB"].ConnectionString;
+
+                    try
+                    {
+
+                        string queryString = "UPDATE Serviços SET PAGAMENTO_ID = @IdNull";
+                        queryString += " WHERE CPF_CNPJ = " + cpf_cliente;
+
+                        using (SqlConnection connection = new SqlConnection(connectionString))
+                        {
+                            SqlCommand command = new SqlCommand(queryString, connection);
+                            connection.Open();
+
+                            command.Parameters.AddWithValue("@IdNull", DBNull.Value);
+
+                            int result = command.ExecuteNonQuery();
+
+                            connection.Close();
+                        }
+
+                        queryString = "DELETE FROM Pagamento ";
+                        queryString += " WHERE CPF_CNPJ = " + cpf_cliente;
+
+                        using (SqlConnection connection = new SqlConnection(connectionString))
+                        {
+                            SqlCommand command = new SqlCommand(queryString, connection);
+                            connection.Open();
+
+                            int result = command.ExecuteNonQuery();
+
+                            connection.Close();
+                        }
+
+                        queryString = "DELETE FROM Serviços ";
+                        queryString += " WHERE CPF_CNPJ = " + cpf_cliente;
+
+                        using (SqlConnection connection = new SqlConnection(connectionString))
+                        {
+                            SqlCommand command = new SqlCommand(queryString, connection);
+                            connection.Open();
+
+                            int result = command.ExecuteNonQuery();
+
+                            connection.Close();
+                        }
+                        queryString = "DELETE FROM Clientes ";
+                        queryString += " WHERE CPF_CNPJ = " + cpf_cliente;
+                        using (SqlConnection connection = new SqlConnection(connectionString))
+                        {
+                            SqlCommand command = new SqlCommand(queryString, connection);
+                            connection.Open();
+
+                            int result = command.ExecuteNonQuery();
+
+                            connection.Close();
+                        }
+                        MessageBox.Show("Todos os dados do cliente foram excluídos com sucesso!");
+                        this.Close();
+                    }
+                    catch (SqlException ex)
+                    {
+                        Console.WriteLine(ex.ToString());
+                    }
+                    break;
+                case DialogResult.No:
+                    
+
+                    this.Close();
+
+                    break;
+
+                default:
+                    this.Close();
+                    break;
+            }
         }
     }
 }

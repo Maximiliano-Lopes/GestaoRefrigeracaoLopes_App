@@ -329,5 +329,84 @@ namespace RefrigeracaoLopes_App
             pagamentoForm.Show();
             this.Close();
         }
+
+        private void btnExcluirCliente_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Quer mesmo apagar todos os registros deste serviço?",
+                     "Informação", MessageBoxButtons.YesNo);
+            switch (dr)
+            {
+                case DialogResult.Yes:
+
+                    //Excluir os dados do serviço 
+                    int servico_id = int.Parse(idServico_Place.Text.ToString());
+                    
+
+                    String connectionString = ConfigurationManager.ConnectionStrings["RefrigeracaoLopes_App.Properties.Settings.refrigeracaoDB"].ConnectionString;
+
+                    try
+                    {
+
+                        string queryString = "UPDATE Serviços SET PAGAMENTO_ID = @IdNull";
+                        queryString += " WHERE ID = " + servico_id;
+
+                        using (SqlConnection connection = new SqlConnection(connectionString))
+                        {
+                            SqlCommand command = new SqlCommand(queryString, connection);
+                            connection.Open();
+
+                            command.Parameters.AddWithValue("@IdNull", DBNull.Value);
+
+                            int result = command.ExecuteNonQuery();
+
+                            connection.Close();
+                        }
+                        queryString = "DELETE FROM Pagamento ";
+                        queryString += " WHERE ID_SERVICO = " + servico_id;
+
+                        using (SqlConnection connection = new SqlConnection(connectionString))
+                        {
+                            SqlCommand command = new SqlCommand(queryString, connection);
+                            connection.Open();
+
+                            int result = command.ExecuteNonQuery();
+
+                            connection.Close();
+                        }
+
+
+                        queryString = "DELETE FROM Serviços ";
+                        queryString += " WHERE ID = " + servico_id;
+
+                        using (SqlConnection connection = new SqlConnection(connectionString))
+                        {
+                            SqlCommand command = new SqlCommand(queryString, connection);
+                            connection.Open();
+
+                            int result = command.ExecuteNonQuery();
+
+                            connection.Close();
+                        }
+
+                        MessageBox.Show("Todos os dados deste serviço foram excluídos com sucesso!");
+                        this.Close();
+                    }
+                    catch (SqlException ex)
+                    {
+                        MessageBox.Show("Os dados deste serviço não foram excluídos com êxito, contate o suporte!");
+                        Console.WriteLine(ex.ToString());
+                    }
+                    break;
+                case DialogResult.No:
+
+                    this.Close();
+
+                    break;
+
+                default:
+                    this.Close();
+                    break;
+            }
+        }
     }
 }

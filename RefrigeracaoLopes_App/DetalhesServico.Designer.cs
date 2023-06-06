@@ -64,6 +64,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.idPagamento_Place = new System.Windows.Forms.Label();
             this.btn_editarInfoPaga = new System.Windows.Forms.Button();
+            this.btnExcluirCliente = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownOrcamento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPreco)).BeginInit();
             this.SuspendLayout();
@@ -530,6 +531,20 @@
             this.btn_editarInfoPaga.UseVisualStyleBackColor = true;
             this.btn_editarInfoPaga.Click += new System.EventHandler(this.btn_editarInfoPaga_Click);
             // 
+            // btnExcluirCliente
+            // 
+            this.btnExcluirCliente.BackColor = System.Drawing.Color.Maroon;
+            this.btnExcluirCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.btnExcluirCliente.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.btnExcluirCliente.Location = new System.Drawing.Point(636, 764);
+            this.btnExcluirCliente.Margin = new System.Windows.Forms.Padding(2);
+            this.btnExcluirCliente.Name = "btnExcluirCliente";
+            this.btnExcluirCliente.Size = new System.Drawing.Size(147, 39);
+            this.btnExcluirCliente.TabIndex = 129;
+            this.btnExcluirCliente.Text = "Excluir cliente";
+            this.btnExcluirCliente.UseVisualStyleBackColor = false;
+            this.btnExcluirCliente.Click += new System.EventHandler(this.btnExcluirCliente_Click);
+            // 
             // DetalhesServico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -537,6 +552,7 @@
             this.AutoScroll = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(800, 814);
+            this.Controls.Add(this.btnExcluirCliente);
             this.Controls.Add(this.btn_editarInfoPaga);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.idPagamento_Place);
@@ -623,5 +639,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label idPagamento_Place;
         private System.Windows.Forms.Button btn_editarInfoPaga;
+        private System.Windows.Forms.Button btnExcluirCliente;
     }
 }

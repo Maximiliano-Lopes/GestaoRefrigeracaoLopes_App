@@ -54,6 +54,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.dateTimeClienteDesde = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
+            this.btnExcluirCliente = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.refrigeracaoDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.serviçosBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -257,7 +258,7 @@
             this.button1.AutoSize = true;
             this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.button1.Location = new System.Drawing.Point(749, 366);
+            this.button1.Location = new System.Drawing.Point(631, 357);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.MaximumSize = new System.Drawing.Size(375, 41);
             this.button1.Name = "button1";
@@ -265,6 +266,7 @@
             this.button1.TabIndex = 18;
             this.button1.Text = "Novo serviço";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // inputCPF
@@ -338,12 +340,27 @@
             this.label9.Text = "Cliente desde:";
             this.label9.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
+            // btnExcluirCliente
+            // 
+            this.btnExcluirCliente.BackColor = System.Drawing.Color.Maroon;
+            this.btnExcluirCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.btnExcluirCliente.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.btnExcluirCliente.Location = new System.Drawing.Point(955, 376);
+            this.btnExcluirCliente.Margin = new System.Windows.Forms.Padding(2);
+            this.btnExcluirCliente.Name = "btnExcluirCliente";
+            this.btnExcluirCliente.Size = new System.Drawing.Size(147, 39);
+            this.btnExcluirCliente.TabIndex = 43;
+            this.btnExcluirCliente.Text = "Excluir cliente";
+            this.btnExcluirCliente.UseVisualStyleBackColor = false;
+            this.btnExcluirCliente.Click += new System.EventHandler(this.btnExcluirCliente_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(1113, 426);
+            this.Controls.Add(this.btnExcluirCliente);
             this.Controls.Add(this.dateTimeClienteDesde);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.datePickAreaNasc);
@@ -406,5 +423,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DateTimePicker dateTimeClienteDesde;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btnExcluirCliente;
     }
 }
